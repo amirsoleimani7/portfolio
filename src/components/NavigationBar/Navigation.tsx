@@ -7,7 +7,7 @@ import { buildProjectionTransform } from "framer-motion";
 const Navigation = () => {
   console.log(navigationData);
   return (
-    <div className="">
+    <div className="w-full bg-green-500">
       {navigationData.map((btn: headerButton, index: number) => {
         let Icon = btn?.Icon as React.ComponentType;
         return (
