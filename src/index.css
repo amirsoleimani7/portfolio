@@ -21,8 +21,8 @@ html{
   scroll-behavior: smooth;  
 }
 
-
 @font-face {
   font-family: Lato;
   src: url("/public/fonts/Lato,Rubik/Lato/Lato-Regular.ttf");
 }
+
