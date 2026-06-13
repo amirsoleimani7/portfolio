@@ -5,7 +5,7 @@ import Navigation from "./components/NavigationBar/Navigation";
 function App() {
   return (
     <SmoothScroll>
-      <div className="">
+      <div className="bg-red-100">
         <Navigation/>
       </div>
     </SmoothScroll>
