@@ -1,10 +1,13 @@
 import { useEffect, useRef } from "react";
 import SmoothScroll from "./components/smoothScroll/SmoothScroll";
+import Navigation from "./components/NavigationBar/Navigation";
 
 function App() {
   return (
     <SmoothScroll>
-      <div className="App bg-red-100 w-[200px] h-[2000px] font-bold">test</div>
+      <div className="">
+        <Navigation/>
+      </div>
     </SmoothScroll>
   );
 }
