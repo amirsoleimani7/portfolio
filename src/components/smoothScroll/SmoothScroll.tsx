@@ -1,19 +1,17 @@
-import React, { useEffect, useRef, useState} from "react";
-import {useScroll ,useSpring , useTransform , motion} from 'framer-motion'
+import React, { useEffect, useRef, useState } from "react";
+import { useScroll, useSpring, useTransform, motion } from 'framer-motion';
 
 const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-    
   const contentRef = useRef<HTMLDivElement>(null);
-  const [contentHeight, setContentHieght] = useState(0);
+  const [contentHeight, setContentHeight] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   
   useEffect(() => {
-  
     const handleResize = () => {
-      if (contentRef.current != null) {
-        setContentHieght(contentRef.current.scrollHeight);
+      if (contentRef.current) {
+        setContentHeight(contentRef.current.scrollHeight);
       }
       setWindowHeight(window.innerHeight);
     };
@@ -24,31 +22,37 @@ const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-    
-  }, [contentRef]);
+  }, [children]); // Add children as dependency to recalculate when content changes
 
-  // intercept normal scrolling
-  const { scrollY } = useScroll();
-  const smoothProgress = useSpring(scrollY , {
-    mass :.01,
-    stiffness : 100,
-    damping : 10,
-    restDelta : 0.001,
-  })
+  // Get scroll progress (0 to 1) instead of absolute scrollY
+  const { scrollYProgress } = useScroll();
   
-  const y = useTransform(smoothProgress,(value) => {
-    const maxOffset = Math.max(contentHeight - windowHeight, 0);
-    return -Math.min(value, maxOffset);
+  // Smooth the progress value
+  const smoothProgress = useSpring(scrollYProgress, {
+    mass: .05,
+    stiffness: 200,
+    damping: 15,
+    restDelta: 0.001,
   });
   
+  // Transform progress to pixel offset
+  const y = useTransform(smoothProgress, (progress) => {
+    const maxOffset = Math.max(contentHeight - windowHeight, 0);
+    return -progress * maxOffset;
+  });
 
   return (
     <>
+      {/* Spacer div to maintain scroll height */}
       <div style={{ height: contentHeight }} />
-      <motion.div className="fixed top-0 left-0 overflow-hidden" ref={contentRef} style={{y : y}}>
-            {
-                children
-            }
+      
+      {/* Fixed content that moves with scroll */}
+      <motion.div 
+        className="fixed top-0 left-0 w-full" 
+        ref={contentRef} 
+        style={{ y }}
+      >
+        {children}
       </motion.div>
     </>
   );

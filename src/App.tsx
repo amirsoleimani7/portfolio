@@ -1,16 +1,30 @@
-import { useEffect, useRef } from "react";
-import SmoothScroll from "./components/smoothScroll/SmoothScroll";
+// import SmoothScroll from "./components/smoothScroll/SmoothScroll";
+import { Info } from "./components/mainIntroduction/Info";
 import Navigation from "./components/NavigationBar/Navigation";
+import SmoothScroll from "./components/smoothScroll/SmoothScroll";
+// import { Info } from "./components/mainIntroduction/Info";
 
 function App() {
   return (
     <SmoothScroll>
-      <div className="w-screen h-screen p-0 m-0 bg-main-color">
-        <div className="w-full flex justify-center">
-          <Navigation />
+      <div
+        className="w-screen p-0 m-0 bg-main-color justify-start
+        flex flex-col"
+      >
+        <div className="w-full flex justify-center h-fit border-b border-gray-800 ">
+          <div className="w-[60%] flex justify-center border-r border-l border-gray-800 transition-all duration-200 ease-in-out max-lg:w-[90%] max-2xl:w-[80%]">
+            <Navigation />
+          </div>
         </div>
-        <div className="border-b outline-none border-gray-800 mt-3 w-[95%] mx-auto"></div>
-        
+        <div className="w-full flex justify-center h-fit border-b border-gray-800 ">
+          <div className="w-[60%] flex justify-center border-r border-l border-gray-800 transition-all duration-200 ease-in-out max-lg:w-[90%] max-2xl:w-[80%]">
+            <Info />
+          </div>
+        </div>
+
+        <div className="w-full flex justify-center h-[600px] border-b border-gray-800 ">
+          <div className="w-[60%] flex justify-center border-r border-l border-gray-800 transition-all duration-200 ease-in-out max-lg:w-[90%] max-2xl:w-[80%]"></div>
+        </div>
       </div>
     </SmoothScroll>
   );
