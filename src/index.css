@@ -26,3 +26,9 @@ html{
   src: url("/public/fonts/Lato,Rubik/Lato/Lato-Regular.ttf");
 }
 
+
+::-webkit-scrollbar{
+  width: 0px;
+  height: 0px;
+  background-color: transparent;
+}

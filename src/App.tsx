@@ -10,6 +10,7 @@ function App() {
           <Navigation />
         </div>
         <div className="border-b outline-none border-gray-800 mt-3 w-[95%] mx-auto"></div>
+        
       </div>
     </SmoothScroll>
   );
