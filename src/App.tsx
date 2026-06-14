@@ -6,9 +6,10 @@ function App() {
   return (
     <SmoothScroll>
       <div className="w-screen h-screen p-0 m-0 bg-main-color">
-        <div className="w-full flex justify-center p-2">
+        <div className="w-full flex justify-center">
           <Navigation />
         </div>
+        <div className="border-b outline-none border-gray-800 mt-3 w-[95%] mx-auto"></div>
       </div>
     </SmoothScroll>
   );
