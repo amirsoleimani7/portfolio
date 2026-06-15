@@ -7,9 +7,45 @@ import {
 } from "../../storage/data/socials";
 import { ConfigProvider, Space, Tooltip } from "antd";
 import BlurText from "./BlurText";
-// import { useState } from "react";
+
+import { useEffect, useState } from "react";
+import axios from "axios";
+import TypewriterView from "./TypeWriter";
+
+async function getCurrentTime(){
+  console.log("we are in update");
+  const res = await axios
+    .get("https://timeapi.io/api/timezone/zone?timeZone=Asia/Tehran");
+  return res.data;
+}
+
 
 export const Info = () => {
+  
+  const [currentTime, setCurrentTime] = useState<string>("");
+  const [isTimeLoading, setTimeLoading] = useState<boolean>(false);
+  
+  useEffect(() => {
+    async function fetchTime(){
+      try {
+        setTimeLoading(true);
+        const data = await getCurrentTime();
+        const currentLocalTime: string = data["currentLocalTime"];
+        const iranTime = currentLocalTime.split("T")[1].split(".")[0];
+        setCurrentTime(iranTime);
+        
+      } catch (error) {
+        console.error("Error fetching time:", error);
+      } finally {
+        setTimeLoading(false);
+      }
+    }
+    fetchTime();
+  } , []);
+  
+  console.log(currentTime);
+  console.log(isTimeLoading);
+
   return (
     <>
       <div className="flex w-full p-[5%]">
@@ -122,6 +158,25 @@ export const Info = () => {
                   <div className="w-6 h-6 shrink-0 outline-gray-700 outline-1 outline rounded-md flex justify-center items-center">
                     <o.logo />
                   </div>
+                  
+                  {
+                    o.value ===  undefined ? (
+                      <div className="text-sm">
+                        {
+                          isTimeLoading  ? (
+                            <TypewriterView/>
+                          ) : (
+                            <div>
+                              {
+                                currentTime
+                              }
+                            </div>
+                          )
+                        }
+                      </div>
+                    ) : <></>
+                  }
+                  
                   <span className="text-sm">
                     {o.value?.split("").map((char, index) => (
                       <span
@@ -137,6 +192,7 @@ export const Info = () => {
                       </span>
                     ))}
                   </span>
+
                 </div>
               );
             })}
