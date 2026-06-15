@@ -8,6 +8,14 @@ import {
 } from "react-icons/md";
 
 import { IconType } from "react-icons";
+import axios from "axios";
+
+async function getCurrentTime(): Promise<string>{
+  console.log("we are in update");
+  const resualt = await axios
+    .get("https://timeapi.io/api/timezone/zone?timeZone=Asia/Tehran");
+    return resualt.data;
+}
 
 export type SocialsType = {
   id: number;
@@ -42,6 +50,7 @@ export type OtherType = {
   description: string;
   logo: IconType;
   value?: string;
+  time?: Promise<string>
 };
 
 export const otherInformation: OtherType[] = [
@@ -55,7 +64,7 @@ export const otherInformation: OtherType[] = [
     id: 2,
     description: "time",
     logo: MdOutlineAccessTime,
-    value: "17 : 40",
+    time: getCurrentTime(),
   },
   {
     id: 3,

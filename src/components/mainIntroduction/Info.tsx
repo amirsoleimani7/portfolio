@@ -7,6 +7,7 @@ import {
 } from "../../storage/data/socials";
 import { ConfigProvider, Space, Tooltip } from "antd";
 import BlurText from "./BlurText";
+// import { useState } from "react";
 
 export const Info = () => {
   return (
@@ -23,14 +24,14 @@ export const Info = () => {
                 className="text-gray-500"
               />
             </h1>
-              <BlurText
-                text="Welcome To my portpolio Site"
-                delay={50}
-                animateBy="words"
-                direction="bottom"
-                className="text-6xl font-bold"
-              />
-            
+            <BlurText
+              text="Welcome To my portpolio Site"
+              delay={50}
+              animateBy="words"
+              direction="bottom"
+              className="text-6xl font-bold"
+            />
+
             {/* <h1 className="text-6xl font-bold">Welcome To my portpolio Site</h1> */}
             <div className="flex flex-col mt-5 gap-4 text-md ">
               <p className="text-gray-400 leading-6">
@@ -81,10 +82,12 @@ export const Info = () => {
                         title={s.name}
                         color={"white"}
                         trigger={"hover"}
-                        overlayInnerStyle={{
-                          borderRadius: "20px",
-                          padding: "5px 10px 1px 10px",
-                          fontWeight: "500",
+                        styles={{
+                          container: {
+                            borderRadius: "20px",
+                            padding: "5px 10px 5px 10px",
+                            fontWeight: "500",
+                          },
                         }}
                         mouseEnterDelay={0.01}
                       >
@@ -113,7 +116,7 @@ export const Info = () => {
             {otherInformation.map((o: OtherType, index: number) => {
               return (
                 <div
-                  className="flex gap-2 items-center text-gray-400 "
+                  className="flex gap-2 items-center text-gray-400 cursor-pointer transition-all duration-200 hover:text-white"
                   key={index}
                 >
                   <div className="w-6 h-6 shrink-0 outline-gray-700 outline-1 outline rounded-md flex justify-center items-center">
