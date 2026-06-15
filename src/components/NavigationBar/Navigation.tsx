@@ -3,6 +3,7 @@ import navigationData, {
 } from "../../storage/data/navigationData";
 import { userInformation } from "../../storage/data/Information";
 
+
 const Navigation = () => {
   return (
     <div className="w-fit px-3 py-3 flex justify-center  rounded-full gap-5 border border-gray-800 my-2 backdrop-blur-xl z-10">

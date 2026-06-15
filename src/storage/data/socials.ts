@@ -41,7 +41,7 @@ export type OtherType = {
   id: number;
   description: string;
   logo: IconType;
-  link?: string;
+  value?: string;
 };
 
 export const otherInformation: OtherType[] = [
@@ -49,21 +49,24 @@ export const otherInformation: OtherType[] = [
     id: 1,
     description: "location",
     logo: MdOutlineLocationOn,
+    value: "Iran, Bushehr",
   },
   {
     id: 2,
     description: "time",
     logo: MdOutlineAccessTime,
+    value: "17 : 40",
   },
   {
     id: 3,
     description: "phoneNumber",
     logo: MdOutlinePhoneAndroid,
+    value: "+98 9171758529",
   },
   {
     id: 4,
     description: "email",
     logo: MdOutlineEmail,
+    value: "a.soleimani@ec.iut.ac.ir",
   },
 ];
-

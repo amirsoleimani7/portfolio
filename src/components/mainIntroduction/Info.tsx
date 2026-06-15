@@ -1,5 +1,10 @@
 import { userInformation } from "../../storage/data/Information";
-import { Socials, SocialsType } from "../../storage/data/socials";
+import {
+  Socials,
+  SocialsType,
+  otherInformation,
+  OtherType,
+} from "../../storage/data/socials";
 import { ConfigProvider, Space, Tooltip } from "antd";
 
 export const Info = () => {
@@ -41,8 +46,8 @@ export const Info = () => {
           </div>
         </div>
 
-        <div className="w-[40%] h-full ">
-          <div className="relative h-[75%]">
+        <div className="w-[40%] h-full flex flex-col">
+          <div className="relative h-[70%]">
             <img
               src={userInformation.profile}
               alt="user's profile "
@@ -81,6 +86,42 @@ export const Info = () => {
                 </Space>
               </ConfigProvider>
             </div>
+          </div>
+
+          <div className="flex flex-col h-[15%]">
+            <h1 className="text-white text-xl font-bold  pt-2">
+              AmirHossein Soleimani
+            </h1>
+            <p className="text-gray-300">Frontend Engineer</p>
+          </div>
+          <div className="h-[15%] w-full rounded-xl grid grid-cols-2 text-white gap-1 mt-auto">
+            {otherInformation.map((o: OtherType, index: number) => {
+              return (
+                <div
+                  className="flex gap-2 items-center text-gray-400 "
+                  key={index}
+                >
+                  <div className="w-6 h-6 shrink-0 outline-gray-700 outline-1 outline rounded-md flex justify-center items-center">
+                    <o.logo />
+                  </div>
+                  <span className="text-sm">
+                    {o.value?.split("").map((char, index) => (
+                      <span
+                        key={index}
+                        className="char"
+                        style={{
+                          display: "inline-block",
+                          transition: "all 0.2s",
+                          animationDelay: `${index * 0.03}s`,
+                        }}
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </span>
+                    ))}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
