@@ -48,7 +48,7 @@ const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
       
       {/* Fixed content that moves with scroll */}
       <motion.div 
-        className="fixed top-0 left-0 w-full" 
+        className="fixed top-0 left-0 w-full " 
         ref={contentRef} 
         style={{ y }}
       >

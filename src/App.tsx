@@ -4,6 +4,8 @@ import Navigation from "./components/NavigationBar/Navigation";
 import SmoothScroll from "./components/smoothScroll/SmoothScroll";
 // import { Info } from "./components/mainIntroduction/Info";
 
+import "@radix-ui/themes/styles.css";
+
 function App() {
   return (
     <SmoothScroll>
