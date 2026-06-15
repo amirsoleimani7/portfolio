@@ -35,13 +35,13 @@ export const Info = () => {
 
         <div className="w-[40%] h-full bg-white">
           <div className="relative">
-            <img src={userInformation.profile} alt="user's profile picture" />
+            <img src={userInformation.profile} alt="user's profile picture" className="w-full object-cover asd" />
             <div className="flex absolute right-2 bottom-2  gap-2">
               {Socials.map((s: SocialsType, index: number) => {
                 return (
                   <button
                     key={index}
-                    className="w-10 h-10  rounded-full backdrop-blur-xl border-none  text-white flex items-center justify-center "
+                    className="w-10 h-10  rounded-full backdrop-blur-xl bg-[rgba(0,0,0,0.2)] border-none  text-white flex items-center justify-center "
                   >
                     <s.logo />
                   </button>
