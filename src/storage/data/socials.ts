@@ -5,7 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 import { IconType } from "react-icons";
 
-type SocialsType = {
+export type SocialsType = {
     id : number,
     name : string,
     logo : IconType
