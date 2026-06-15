@@ -1,6 +1,6 @@
 import { userInformation } from "../../storage/data/Information";
 import { Socials, SocialsType } from "../../storage/data/socials";
-import { Tooltip } from "antd";
+import { ConfigProvider, Space, Tooltip } from "antd";
 
 export const Info = () => {
   return (
@@ -49,29 +49,37 @@ export const Info = () => {
               className="w-full h-full object-cover rounded-xl"
             />
             <div className="flex absolute right-2 bottom-2  gap-2">
-              {Socials.map((s: SocialsType, index: number) => {
-                return (
-                  <Tooltip
-                    title={s.name}
-                    color={"white"}
-                    trigger={"hover"}
-                    overlayInnerStyle={{
-                      borderRadius: "20px",
-                      padding: "5px 10px 1px 10px",
-                      fontWeight: "500",
-                    }}
-                    mouseEnterDelay={0.01}
-                  >
-                    {" "}
-                    <button
-                      key={index}
-                      className="w-10 h-10  rounded-full backdrop-blur-xl bg-[rgba(0,0,0,0.3)] border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"
-                    >
-                      <s.logo />
-                    </button>
-                  </Tooltip>
-                );
-              })}
+              <ConfigProvider
+                tooltip={{
+                  unique: true,
+                }}
+              >
+                <Space>
+                  {Socials.map((s: SocialsType, index: number) => {
+                    return (
+                      <Tooltip
+                        title={s.name}
+                        color={"white"}
+                        trigger={"hover"}
+                        overlayInnerStyle={{
+                          borderRadius: "20px",
+                          padding: "5px 10px 1px 10px",
+                          fontWeight: "500",
+                        }}
+                        mouseEnterDelay={0.01}
+                      >
+                        {" "}
+                        <button
+                          key={index}
+                          className="w-10 h-10  rounded-full backdrop-blur-xl bg-[rgba(0,0,0,0.3)] border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"
+                        >
+                          <s.logo />
+                        </button>
+                      </Tooltip>
+                    );
+                  })}
+                </Space>
+              </ConfigProvider>
             </div>
           </div>
         </div>
