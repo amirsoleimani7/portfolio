@@ -6,36 +6,44 @@ export const Info = () => {
 
   return (
     <>
-      <div className="flex h-[550px] w-full p-[5%]">
+      <div className="flex w-full p-[5%]">
         <div className="w-[60%] h-full text-white ">
-          <h1 className="text-6xl font-bold">
-            <span className="text-gray-500">Hey I'm Amir</span>
-          </h1>
-          <h1 className="text-6xl font-bold">Welcome To my portpolio Site</h1>
-          <div className="flex flex-col mt-5 gap-5 text-md">
-            <p className="text-gray-400">
-              I'm a{" "}
-              <span className="font-semibold text-white">Frontend Enginner</span>{" "}
-              with{" "}
-              <span className="font-semibold text-white">
-                3+ years of experience
-              </span>
-              , knowen for strong attention to details and pixel perfect exceution
-              of the projects
-            </p>
-            <p className="text-gray-400">
-              My main tech stack it{" "}
-              <span className="text-white font-semibold">
-                React, Javascript and typescript
-              </span>
-              , and modern front-end technologies for building web apps
-            </p>
+          <div className="w-[80%]">
+            <h1 className="text-6xl font-bold mb-2">
+              <span className="text-gray-500">Hey I'm Amir</span>
+            </h1>
+            <h1 className="text-6xl font-bold">Welcome To my portpolio Site</h1>
+            <div className="flex flex-col mt-5 gap-5 text-md">
+              <p className="text-gray-400">
+                I'm a{" "}
+                <span className="font-semibold text-white">
+                  Frontend Enginner
+                </span>{" "}
+                with{" "}
+                <span className="font-semibold text-white">
+                  3+ years of experience
+                </span>
+                , knowen for strong attention to details and pixel perfect
+                exceution of the projects
+              </p>
+              <p className="text-gray-400">
+                My main tech stack it{" "}
+                <span className="text-white font-semibold">
+                  React, Javascript and typescript
+                </span>
+                , and modern front-end technologies for building web apps
+              </p>
+            </div>
           </div>
         </div>
-
-        <div className="w-[40%] h-full bg-white">
+        
+        <div className="w-[40%] h-full ">
           <div className="relative">
-            <img src={userInformation.profile} alt="user's profile picture" className="w-full object-cover asd" />
+            <img
+              src={userInformation.profile}
+              alt="user's profile picture"
+              className="w-full object-cover rounded-xl"
+            />
             <div className="flex absolute right-2 bottom-2  gap-2">
               {Socials.map((s: SocialsType, index: number) => {
                 return (
