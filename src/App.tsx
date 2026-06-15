@@ -4,9 +4,12 @@ import Navigation from "./components/NavigationBar/Navigation";
 // import SmoothScroll from "./components/smoothScroll/SmoothScroll";
 // import { Info } from "./components/mainIntroduction/Info";
 import "@radix-ui/themes/styles.css";
+import SmoothScroll from "./components/smoothScroll/SmoothScroll";
+
 
 function App() {
   return (
+    <SmoothScroll>
       <div
         className="w-screen p-0 m-0 bg-main-color justify-start
         flex flex-col relative"
@@ -29,6 +32,7 @@ function App() {
         {/* back drop shadow stuff */}
         <div className="fixed bottom-0 w-full h-[50px] z-10"></div>
       </div>
+    </SmoothScroll>
   );
 }
 

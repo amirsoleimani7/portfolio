@@ -6,6 +6,7 @@ import {
   OtherType,
 } from "../../storage/data/socials";
 import { ConfigProvider, Space, Tooltip } from "antd";
+import BlurText from "./BlurText";
 
 export const Info = () => {
   return (
@@ -14,9 +15,23 @@ export const Info = () => {
         <div className="w-[60%] h-full text-white rounded-xl flex flex-col">
           <div className="w-[80%] mb-5">
             <h1 className="text-6xl font-bold mb-2">
-              <span className="text-gray-500">Hey I'm Amir</span>
+              <BlurText
+                text="Hey I'm Amir"
+                delay={50}
+                animateBy="words"
+                direction="top"
+                className="text-gray-500"
+              />
             </h1>
-            <h1 className="text-6xl font-bold">Welcome To my portpolio Site</h1>
+              <BlurText
+                text="Welcome To my portpolio Site"
+                delay={50}
+                animateBy="words"
+                direction="bottom"
+                className="text-6xl font-bold"
+              />
+            
+            {/* <h1 className="text-6xl font-bold">Welcome To my portpolio Site</h1> */}
             <div className="flex flex-col mt-5 gap-4 text-md ">
               <p className="text-gray-400 leading-6">
                 I'm a{" "}

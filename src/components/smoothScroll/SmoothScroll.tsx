@@ -15,7 +15,7 @@ const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
       }
       setWindowHeight(window.innerHeight);
     };
-
+    
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -29,7 +29,7 @@ const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
   
   // Smooth the progress value
   const smoothProgress = useSpring(scrollYProgress, {
-    mass: .05,
+    mass: .1,
     stiffness: 200,
     damping: 15,
     restDelta: 0.001,
