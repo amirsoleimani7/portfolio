@@ -12,40 +12,105 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TypewriterView from "./TypeWriter";
 
-async function getCurrentTime(){
-  console.log("we are in update");
-  const res = await axios
-    .get("https://timeapi.io/api/timezone/zone?timeZone=Asia/Tehran");
+async function getCurrentTime() {
+  const res = await axios.get(
+    "https://timeapi.io/api/timezone/zone?timeZone=Asia/Tehran",
+  );
   return res.data;
 }
 
-
 export const Info = () => {
-  
-  const [currentTime, setCurrentTime] = useState<string>("");
+  type timeType = {
+    isError: boolean;
+    errorText: string;
+    Hour: number;
+    Minute: number;
+    Seconds: number;
+  };
+
+  const [currentTime, setCurrentTime] = useState<timeType>({
+    isError: false,
+    errorText: "",
+    Hour: 0,
+    Minute: 0,
+    Seconds: 0,
+  });
+
   const [isTimeLoading, setTimeLoading] = useState<boolean>(false);
-  
+
+
+
+  // just once onMount
   useEffect(() => {
-    async function fetchTime(){
+    async function fetchTime() {
       try {
         setTimeLoading(true);
         const data = await getCurrentTime();
         const currentLocalTime: string = data["currentLocalTime"];
-        const iranTime = currentLocalTime.split("T")[1].split(".")[0];
-        setCurrentTime(iranTime);
-        
+
+        const iranTime = currentLocalTime
+          .split("T")[1]
+          .split(".")[0]
+          .split(":");
+
+        setCurrentTime({
+          isError: false,
+          errorText: "",
+          Hour: parseInt(iranTime[0]),
+          Minute: parseInt(iranTime[1]),
+          Seconds: parseInt(iranTime[2]),
+        });
+
+        // we gotta make it moving
       } catch (error) {
         console.error("Error fetching time:", error);
+        setCurrentTime({
+          isError: true,
+          errorText: "Failed Load Iran's Time",
+          Hour: 0,
+          Minute: 0,
+          Seconds: 0,
+        });
       } finally {
         setTimeLoading(false);
       }
     }
     fetchTime();
-  } , []);
+  }, []);
   
-  console.log(currentTime);
-  console.log(isTimeLoading);
+    useEffect(() => {
+    const interval = setInterval(() => {
+      const nextSec = currentTime.Seconds + 1;
+      
+      const data: timeType = {
+        isError: false,
+        errorText: "",
+        Hour: currentTime.Hour,
+        Minute: currentTime.Minute,
+        Seconds: nextSec,
+      };
+      
+      if (nextSec === 60) {
+        data.Minute += 1;  
+        data.Seconds = 0;
+      }
+      
+      if (data.Minute === 60){
+        data.Hour += 1;
+        data.Minute = 0;
+      }
+      if (data.Hour === 12){
+        data.Hour = 1;
+      }
 
+      setCurrentTime(data);
+    }, 1000);
+
+    // handling memmory leak
+    return () => clearInterval(interval);
+  }, [currentTime]);
+
+  
   return (
     <>
       <div className="flex w-full p-[5%]">
@@ -77,7 +142,7 @@ export const Info = () => {
                 </span>{" "}
                 with{" "}
                 <span className="font-semibold text-white">
-                  3+ years of experience
+                  2+ years of experience
                 </span>
                 , knowen for strong attention to details and pixel perfect
                 exceution of the projects
@@ -158,25 +223,23 @@ export const Info = () => {
                   <div className="w-6 h-6 shrink-0 outline-gray-700 outline-1 outline rounded-md flex justify-center items-center">
                     <o.logo />
                   </div>
-                  
-                  {
-                    o.value ===  undefined ? (
-                      <div className="text-sm">
-                        {
-                          isTimeLoading  ? (
-                            <TypewriterView/>
-                          ) : (
-                            <div>
-                              {
-                                currentTime
-                              }
-                            </div>
-                          )
-                        }
-                      </div>
-                    ) : <></>
-                  }
-                  
+
+                  {o.value === undefined ? (
+                    <div className="text-sm">
+                      {isTimeLoading ? (
+                        <TypewriterView />
+                      ) : currentTime.isError ? (
+                        <div>{currentTime.errorText}</div>
+                      ) : (
+                        <div>
+                          {currentTime.Hour <= 9 ? `0${currentTime.Hour}` : currentTime.Hour}:{currentTime.Minute <= 9 ? `0${currentTime.Minute}` : currentTime.Minute}:
+                          {currentTime.Seconds <= 9 ? `0${currentTime.Seconds}` : currentTime.Seconds}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                   <span className="text-sm">
                     {o.value?.split("").map((char, index) => (
                       <span
@@ -192,7 +255,6 @@ export const Info = () => {
                       </span>
                     ))}
                   </span>
-
                 </div>
               );
             })}
