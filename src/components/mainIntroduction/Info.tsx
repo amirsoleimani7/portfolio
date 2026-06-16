@@ -79,7 +79,7 @@ export const Info = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const nextSec = currentTime.Seconds + 1;
-      
+
       const data: timeType = {
         isError: false,
         errorText: "",
@@ -104,12 +104,12 @@ export const Info = () => {
     // handling memmory leak
     return () => clearInterval(interval);
   }, [currentTime]);
-  
+
   return (
     <>
       <div className="flex w-full p-[5%] max-md:flex-col">
-        <div className="w-[60%] h-full text-white rounded-xl flex flex-col max-md:w-full ">
-          <div className="w-[80%] mb-5 max-md:w-full " >
+        <div className="w-[60%] text-white rounded-xl flex flex-col max-md:w-full">
+          <div className="w-[80%] mb-5 max-md:w-full ">
             <h1 className="text-6xl font-bold mb-2 max-md:text-5xl">
               <BlurText
                 text="Hey I'm Amir"
@@ -150,20 +150,21 @@ export const Info = () => {
               </p>
             </div>
           </div>
-          <div className="mt-auto mb-0">
-            <button className="w-[200px] h-[50px]  rounded-full border-none outline-1 outline outline-gray-800 transition-all hover:outline-gray-500 duration-200">
+          <div className="mt-auto">
+            <button className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all hover:outline-gray-500 duration-200">
               <span>Download CV</span>
             </button>
           </div>
         </div>
 
-        <div className="w-[40%] h-full flex flex-col max-md:w-full max-md:mt-5 max-md:flex-row max-md:gap-4 max-sm:flex-col transition-all duration-200 ease-in-out">
-          <div className="relative h-[70%] max-md:h-full max-md:w-[40%] max-sm:w-full">
+        <div className="w-[40%] flex flex-col max-md:w-full max-md:mt-5 max-md:flex-row max-md:gap-4 max-sm:flex-col transition-all duration-200 ease-in-out h-full ">
+          <div className="relative  max-md:h-full max-md:w-[40%] max-sm:w-full h-[70%]">
             <img
               src={userInformation.profile}
               alt="user's profile"
-              className="w-full h-full object-cover rounded-xl"
+              className="w-full h-full object-cover rounded-xl "
             />
+            
             <div className="flex absolute right-2 bottom-2  gap-2">
               <ConfigProvider
                 tooltip={{
@@ -201,14 +202,14 @@ export const Info = () => {
             </div>
           </div>
 
-          <div className="flex flex-col max-md:w-[60%] max-md:h-full max-sm:w-full gap-3 transition-all duration-200 ease-in-out">
-            <div className="flex flex-col h-[15%] max-md:w-full max-md:h-fit ">
+          <div className="flex flex-col max-md:w-[60%] max-md:h-full max-sm:w-full gap-3 transition-all duration-200 ease-in-out  mt-auto">
+            <div className="flex flex-col  max-md:w-full max-md:h-fit ">
               <h1 className="text-white text-xl font-bold  pt-2">
                 AmirHossein Soleimani
               </h1>
               <p className="text-gray-300">Frontend Engineer</p>
             </div>
-            <div className="h-[15%] w-full rounded-xl grid grid-cols-2 text-white gap-1 mt-auto max-md:w-full max-md:h-fit">
+            <div className=" w-full rounded-xl grid grid-cols-2 text-white gap-2 mt-auto max-md:w-full max-md:h-fit ">
               {otherInformation.map((o: OtherType, index: number) => {
                 return (
                   <div
@@ -272,7 +273,6 @@ export const Info = () => {
               })}
             </div>
           </div>
-
         </div>
       </div>
     </>
