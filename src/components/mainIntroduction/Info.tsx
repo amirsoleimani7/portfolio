@@ -79,7 +79,7 @@ export const Info = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const nextSec = currentTime.Seconds + 1;
-
+      
       const data: timeType = {
         isError: false,
         errorText: "",
@@ -96,9 +96,6 @@ export const Info = () => {
       if (data.Minute === 60) {
         data.Hour += 1;
         data.Minute = 0;
-      }
-      if (data.Hour === 12) {
-        data.Hour = 1;
       }
 
       setCurrentTime(data);
