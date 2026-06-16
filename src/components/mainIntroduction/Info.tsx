@@ -104,7 +104,7 @@ export const Info = () => {
     // handling memmory leak
     return () => clearInterval(interval);
   }, [currentTime]);
-
+  
   return (
     <>
       <div className="flex w-full p-[5%]">

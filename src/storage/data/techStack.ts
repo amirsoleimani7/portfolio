@@ -14,6 +14,14 @@ import { SiDjango } from "react-icons/si";
 import { SiQt } from "react-icons/si";
 import { TbBrandCpp } from "react-icons/tb";
 import { SiAxios } from "react-icons/si";
+import { FaGitlab } from "react-icons/fa";
+import { RiVercelLine } from "react-icons/ri";
+import { FaCss3Alt } from "react-icons/fa";
+import { FaHtml5 } from "react-icons/fa";
+import { TbBrandRedux } from "react-icons/tb";
+
+
+
 
 export type teckStackType = {
   id: number;
@@ -97,4 +105,29 @@ export const teckStack: teckStackType[] = [
     text: "axios",
     icon: SiAxios,
   },
+  {
+    id : 16,
+    text : "GitLab",
+    icon: FaGitlab
+  },
+  {
+    id : 17,
+    text : "vercel",
+    icon : RiVercelLine
+  },
+  {
+    id : 18,
+    text : "css",
+    icon : FaCss3Alt
+  },
+  {
+    id :  19,
+    text : "html",
+    icon : FaHtml5
+  },
+  {
+    id : 20,
+    text : "Redux",
+    icon : TbBrandRedux
+  }
 ];
