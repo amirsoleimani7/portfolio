@@ -123,7 +123,7 @@ export const Info = () => {
               />
             </h1>
             <BlurText
-              text="Welcome To my portpolio Site"
+              text="Welcome To my portpolio Site!"
               delay={50}
               animateBy="words"
               direction="bottom"
@@ -214,10 +214,10 @@ export const Info = () => {
             {otherInformation.map((o: OtherType, index: number) => {
               return (
                 <div
-                  className="flex gap-2 items-center text-gray-400 cursor-pointer transition-all duration-200 hover:text-white"
+                  className="flex gap-2 items-center text-gray-400 cursor-pointer transition-all duration-200 hover:text-white group"
                   key={index}
                 >
-                  <div className="w-6 h-6 shrink-0 outline-gray-700 outline-1 outline rounded-md flex justify-center items-center">
+                  <div className="w-6 h-6 shrink-0 outline-gray-700 outline-1 outline rounded-md flex justify-center items-center transition-all duration-200 ease-in-out">
                     <o.logo />
                   </div>
 
