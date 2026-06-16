@@ -107,7 +107,7 @@ export const Info = () => {
 
   return (
     <>
-      <div className="flex w-full p-[5%] max-md:flex-col">
+      <div className="flex w-full p-[5%] max-md:flex-col ">
         <div className="w-[60%] text-white rounded-xl flex flex-col max-md:w-full">
           <div className="w-[80%] mb-5 max-md:w-full ">
             <h1 className="text-6xl font-bold mb-2 max-md:text-5xl">

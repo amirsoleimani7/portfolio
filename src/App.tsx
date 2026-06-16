@@ -4,6 +4,7 @@ import "@radix-ui/themes/styles.css";
 // import SmoothScroll from "./components/smoothScroll/SmoothScroll";
 import { TechStack } from "./components/techStack/TeckStack";
 import { ReactLenis } from 'lenis/react'
+import GithubActivity from "./components/githubActivity/GithubActivity";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
     flex flex-col relative"
     >
       <ReactLenis root />
+      
         <div className="w-full flex justify-center h-fit border-b border-gray-800">
           <div className="w-[60%] flex justify-center border-r border-l border-gray-800 transition-all duration-200 ease-in-out max-lg:w-[95%] max-2xl:w-[80%]">
             <Navigation />
@@ -30,8 +32,10 @@ function App() {
           </div>
         </div>
 
-        <div className="w-full  flex justify-center h-[800px] border-b border-gray-800 ">
-          <div className="w-[60%] flex justify-center border-r border-l border-gray-800 transition-all duration-200 ease-in-out max-lg:w-[95%] max-2xl:w-[80%]"></div>
+        <div className="w-full  flex justify-center  border-b border-gray-800 ">
+          <div className="w-[60%] flex justify-center border-r border-l border-gray-800 transition-all duration-200 ease-in-out max-lg:w-[95%] max-2xl:w-[80%]">
+              <GithubActivity/>
+          </div>
         </div>
       </div>
   );

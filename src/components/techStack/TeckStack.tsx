@@ -6,13 +6,13 @@ import "./SideShadow.css"
 
 export const TechStack = () => {
   return (
-    <div className="flex w-full items-center p-[5%] max-md:flex-col transition-all duration-200 ease-in-out">
-      <div className=" w-[20%] flex items-center justify-center max-md:w-full max-md:mb-5">
+    <div className="flex w-full items-center p-[5%] max-md:flex-col transition-all duration-200 ease-in-out ">
+      <div className=" w-[20%] flex items-center justify-center max-md:w-full max-md:mb-5 ">
         <h1 className="text-2xl font-bold text-gray-500 max-md:text-xl">
           My Teck <span className="text-white">Stack</span>
         </h1>
       </div>
-      <div className="w-[80%] max-md:w-full">
+      <div className="w-[80%] max-md:w-full ">
         <div className="flex flex-col z-10 sometest relative overflow-hidden"
         >
             <Marquee pauseOnHover={true} speed={40} direction="left">

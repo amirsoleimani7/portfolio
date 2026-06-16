@@ -1,0 +1,14 @@
+/* GithubActivity.css */
+.github-calendar-custom {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.github-calendar-custom svg {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.github-calendar-custom .react-activity-calendar {
+  width: 100% !important;
+}
