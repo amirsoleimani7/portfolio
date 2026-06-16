@@ -108,9 +108,9 @@ export const Info = () => {
   return (
     <>
       <div className="flex w-full p-[5%] max-md:flex-col">
-        <div className="w-[60%] h-full text-white rounded-xl flex flex-col max-md:w-full">
-          <div className="w-[80%] mb-5 max-md:w-full" >
-            <h1 className="text-6xl font-bold mb-2">
+        <div className="w-[60%] h-full text-white rounded-xl flex flex-col max-md:w-full ">
+          <div className="w-[80%] mb-5 max-md:w-full " >
+            <h1 className="text-6xl font-bold mb-2 max-md:text-5xl">
               <BlurText
                 text="Hey I'm Amir"
                 delay={50}
@@ -124,7 +124,7 @@ export const Info = () => {
               delay={50}
               animateBy="words"
               direction="bottom"
-              className="text-6xl font-bold"
+              className="text-6xl font-bold max-md:text-5xl"
             />
 
             {/* <h1 className="text-6xl font-bold">Welcome To my portpolio Site</h1> */}
@@ -157,11 +157,11 @@ export const Info = () => {
           </div>
         </div>
 
-        <div className="w-[40%] h-full flex flex-col max-md:w-full max-md:mt-5 max-md:flex-row max-md:gap-4 max-sm:flex-col">
+        <div className="w-[40%] h-full flex flex-col max-md:w-full max-md:mt-5 max-md:flex-row max-md:gap-4 max-sm:flex-col transition-all duration-200 ease-in-out">
           <div className="relative h-[70%] max-md:h-full max-md:w-[40%] max-sm:w-full">
             <img
               src={userInformation.profile}
-              alt="user's profile "
+              alt="user's profile"
               className="w-full h-full object-cover rounded-xl"
             />
             <div className="flex absolute right-2 bottom-2  gap-2">
@@ -201,7 +201,7 @@ export const Info = () => {
             </div>
           </div>
 
-          <div className="flex flex-col max-md:w-[60%] max-md:h-full max-sm:w-full gap-3">
+          <div className="flex flex-col max-md:w-[60%] max-md:h-full max-sm:w-full gap-3 transition-all duration-200 ease-in-out">
             <div className="flex flex-col h-[15%] max-md:w-full max-md:h-fit ">
               <h1 className="text-white text-xl font-bold  pt-2">
                 AmirHossein Soleimani
