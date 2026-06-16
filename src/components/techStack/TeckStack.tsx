@@ -1,6 +1,8 @@
 import { teckStack } from "../../storage/data/techStack";
 import { InstanceTeckStack } from "./IntanceTeckStack";
 import Marquee from "react-fast-marquee";
+import "./SideShadow.css"
+
 
 export const TechStack = () => {
   return (
@@ -11,26 +13,26 @@ export const TechStack = () => {
         </h1>
       </div>
       <div className="w-[80%]">
-        <div className="flex flex-col">
-          <Marquee speed={30} direction="left" >
-            {teckStack.map((x, index) => {
-              return index <= teckStack.length / 2 ? (
-                <InstanceTeckStack {...x} key={index} />
-              ) : (
-                <div></div>
-              );
-            })}
-          </Marquee>
-          <Marquee speed={30} direction="right">
-            {teckStack.map((x, index) => {
-              return index >= teckStack.length / 2 ? (
-                <InstanceTeckStack {...x} key={index} />
-              ) : (
-                <div></div>
-              );
-            })}
-          </Marquee>
-
+        <div className="flex flex-col z-10 sometest relative overflow-hidden"
+        >
+            <Marquee pauseOnHover={true} speed={40} direction="left">
+              {teckStack.map((x, index) => {
+                return index <= teckStack.length / 2 ? (
+                  <InstanceTeckStack {...x} key={index} />
+                ) : (
+                  <div></div>
+                );
+              })}
+            </Marquee>
+            <Marquee pauseOnHover={true} speed={40} direction="right">
+              {teckStack.map((x, index) => {
+                return index >= teckStack.length / 2 ? (
+                  <InstanceTeckStack {...x} key={index} />
+                ) : (
+                  <div></div>
+                );
+              })}
+            </Marquee>
         </div>
       </div>
     </div>

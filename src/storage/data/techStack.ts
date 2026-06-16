@@ -19,7 +19,8 @@ import { RiVercelLine } from "react-icons/ri";
 import { FaCss3Alt } from "react-icons/fa";
 import { FaHtml5 } from "react-icons/fa";
 import { TbBrandRedux } from "react-icons/tb";
-
+import { FaDocker } from "react-icons/fa";
+import { FaLinux } from "react-icons/fa";
 
 
 
@@ -129,5 +130,16 @@ export const teckStack: teckStackType[] = [
     id : 20,
     text : "Redux",
     icon : TbBrandRedux
+  },
+  {
+    id : 21,
+    text : "Docker",
+    icon : FaDocker
+  },
+  {
+    id : 22,
+    text : "Linux",
+    icon : FaLinux
   }
 ];
+

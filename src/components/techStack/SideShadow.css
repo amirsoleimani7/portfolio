@@ -1,0 +1,26 @@
+.sometest::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 15px;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+    background-color: #0e100f;
+    box-shadow: 10px 0px 10px #0e100f;
+}
+
+.sometest::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 15px;
+    right: 0px;
+    top: 0px;
+    z-index: 10;
+    background-color: #0e100f;
+    box-shadow: -10px 0px 10px #0e100f;
+}
+
+
+
