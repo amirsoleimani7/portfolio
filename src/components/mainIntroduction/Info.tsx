@@ -107,9 +107,9 @@ export const Info = () => {
   
   return (
     <>
-      <div className="flex w-full p-[5%]">
-        <div className="w-[60%] h-full text-white rounded-xl flex flex-col">
-          <div className="w-[80%] mb-5">
+      <div className="flex w-full p-[5%] max-md:flex-col">
+        <div className="w-[60%] h-full text-white rounded-xl flex flex-col max-md:w-full">
+          <div className="w-[80%] mb-5 max-md:w-full" >
             <h1 className="text-6xl font-bold mb-2">
               <BlurText
                 text="Hey I'm Amir"
@@ -157,8 +157,8 @@ export const Info = () => {
           </div>
         </div>
 
-        <div className="w-[40%] h-full flex flex-col">
-          <div className="relative h-[70%]">
+        <div className="w-[40%] h-full flex flex-col max-md:w-full max-md:mt-5 max-md:flex-row max-md:gap-4 max-sm:flex-col">
+          <div className="relative h-[70%] max-md:h-full max-md:w-[40%] max-sm:w-full">
             <img
               src={userInformation.profile}
               alt="user's profile "
@@ -201,76 +201,78 @@ export const Info = () => {
             </div>
           </div>
 
-          <div className="flex flex-col h-[15%]">
-            <h1 className="text-white text-xl font-bold  pt-2">
-              AmirHossein Soleimani
-            </h1>
-            <p className="text-gray-300">Frontend Engineer</p>
-          </div>
-          <div className="h-[15%] w-full rounded-xl grid grid-cols-2 text-white gap-1 mt-auto">
-            {otherInformation.map((o: OtherType, index: number) => {
-              return (
-                <div
-                  className="flex gap-2 items-center text-gray-400 cursor-pointer transition-all duration-200 hover:text-white group"
-                  key={index}
-                >
-                  <div className="w-6 h-6 shrink-0 outline-gray-700 outline-1 outline rounded-md flex justify-center items-center transition-all duration-200 ease-in-out">
-                    <o.logo />
-                  </div>
-
-                  {o.value === undefined ? (
-                    <div className="text-sm">
-                      {isTimeLoading ? (
-                        <TypewriterView />
-                      ) : currentTime.isError ? (
-                        <div>{currentTime.errorText}</div>
-                      ) : (
-                        <div>
-                          <NumberFlowGroup>
-                            <NumberFlow
-                              prefix=""
-                              value={currentTime.Hour}
-                              digits={{ 1: { max: 5 } }}
-                              format={{ minimumIntegerDigits: 2 }}
-                            />
-                            <NumberFlow
-                              prefix=":"
-                              value={currentTime.Minute}
-                              digits={{ 1: { max: 5 } }}
-                              format={{ minimumIntegerDigits: 2 }}
-                            />
-                            <NumberFlow
-                              prefix=":"
-                              value={currentTime.Seconds}
-                              digits={{ 1: { max: 5 } }}
-                              format={{ minimumIntegerDigits: 2 }}
-                            />
-                          </NumberFlowGroup>
-                        </div>
-                      )}
+          <div className="flex flex-col max-md:w-[60%] max-md:h-full max-sm:w-full gap-3">
+            <div className="flex flex-col h-[15%] max-md:w-full max-md:h-fit ">
+              <h1 className="text-white text-xl font-bold  pt-2">
+                AmirHossein Soleimani
+              </h1>
+              <p className="text-gray-300">Frontend Engineer</p>
+            </div>
+            <div className="h-[15%] w-full rounded-xl grid grid-cols-2 text-white gap-1 mt-auto max-md:w-full max-md:h-fit">
+              {otherInformation.map((o: OtherType, index: number) => {
+                return (
+                  <div
+                    className="flex gap-2 items-center text-gray-400 cursor-pointer transition-all duration-200 hover:text-white group"
+                    key={index}
+                  >
+                    <div className="w-6 h-6 shrink-0 outline-gray-700 outline-1 outline rounded-md flex justify-center items-center transition-all duration-200 ease-in-out">
+                      <o.logo />
                     </div>
-                  ) : (
-                    <></>
-                  )}
-                  <span className="text-sm">
-                    {o.value?.split("").map((char, index) => (
-                      <span
-                        key={index}
-                        className="char"
-                        style={{
-                          display: "inline-block",
-                          transition: "all 0.2s",
-                          animationDelay: `${index * 0.03}s`,
-                        }}
-                      >
-                        {char === " " ? "\u00A0" : char}
-                      </span>
-                    ))}
-                  </span>
-                </div>
-              );
-            })}
+                    {o.value === undefined ? (
+                      <div className="text-sm">
+                        {isTimeLoading ? (
+                          <TypewriterView />
+                        ) : currentTime.isError ? (
+                          <div>{currentTime.errorText}</div>
+                        ) : (
+                          <div>
+                            <NumberFlowGroup>
+                              <NumberFlow
+                                prefix=""
+                                value={currentTime.Hour}
+                                digits={{ 1: { max: 5 } }}
+                                format={{ minimumIntegerDigits: 2 }}
+                              />
+                              <NumberFlow
+                                prefix=":"
+                                value={currentTime.Minute}
+                                digits={{ 1: { max: 5 } }}
+                                format={{ minimumIntegerDigits: 2 }}
+                              />
+                              <NumberFlow
+                                prefix=":"
+                                value={currentTime.Seconds}
+                                digits={{ 1: { max: 5 } }}
+                                format={{ minimumIntegerDigits: 2 }}
+                              />
+                            </NumberFlowGroup>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <></>
+                    )}
+                    <span className="text-sm">
+                      {o.value?.split("").map((char, index) => (
+                        <span
+                          key={index}
+                          className="char"
+                          style={{
+                            display: "inline-block",
+                            transition: "all 0.2s",
+                            animationDelay: `${index * 0.03}s`,
+                          }}
+                        >
+                          {char === " " ? "\u00A0" : char}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
+
         </div>
       </div>
     </>
