@@ -7,10 +7,10 @@ import {
 } from "../../storage/data/socials";
 import { ConfigProvider, Space, Tooltip } from "antd";
 import BlurText from "./BlurText";
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import TypewriterView from "./TypeWriter";
+import NumberFlow, { NumberFlowGroup } from "@number-flow/react";
 
 async function getCurrentTime() {
   const res = await axios.get(
@@ -37,8 +37,6 @@ export const Info = () => {
   });
 
   const [isTimeLoading, setTimeLoading] = useState<boolean>(false);
-
-
 
   // just once onMount
   useEffect(() => {
@@ -77,11 +75,11 @@ export const Info = () => {
     }
     fetchTime();
   }, []);
-  
-    useEffect(() => {
+
+  useEffect(() => {
     const interval = setInterval(() => {
       const nextSec = currentTime.Seconds + 1;
-      
+
       const data: timeType = {
         isError: false,
         errorText: "",
@@ -89,17 +87,17 @@ export const Info = () => {
         Minute: currentTime.Minute,
         Seconds: nextSec,
       };
-      
+
       if (nextSec === 60) {
-        data.Minute += 1;  
+        data.Minute += 1;
         data.Seconds = 0;
       }
-      
-      if (data.Minute === 60){
+
+      if (data.Minute === 60) {
         data.Hour += 1;
         data.Minute = 0;
       }
-      if (data.Hour === 12){
+      if (data.Hour === 12) {
         data.Hour = 1;
       }
 
@@ -110,7 +108,6 @@ export const Info = () => {
     return () => clearInterval(interval);
   }, [currentTime]);
 
-  
   return (
     <>
       <div className="flex w-full p-[5%]">
@@ -232,8 +229,26 @@ export const Info = () => {
                         <div>{currentTime.errorText}</div>
                       ) : (
                         <div>
-                          {currentTime.Hour <= 9 ? `0${currentTime.Hour}` : currentTime.Hour}:{currentTime.Minute <= 9 ? `0${currentTime.Minute}` : currentTime.Minute}:
-                          {currentTime.Seconds <= 9 ? `0${currentTime.Seconds}` : currentTime.Seconds}
+                          <NumberFlowGroup>
+                            <NumberFlow
+                              prefix=""
+                              value={currentTime.Hour}
+                              digits={{ 1: { max: 5 } }}
+                              format={{ minimumIntegerDigits: 2 }}
+                            />
+                            <NumberFlow
+                              prefix=":"
+                              value={currentTime.Minute}
+                              digits={{ 1: { max: 5 } }}
+                              format={{ minimumIntegerDigits: 2 }}
+                            />
+                            <NumberFlow
+                              prefix=":"
+                              value={currentTime.Seconds}
+                              digits={{ 1: { max: 5 } }}
+                              format={{ minimumIntegerDigits: 2 }}
+                            />
+                          </NumberFlowGroup>
                         </div>
                       )}
                     </div>
