@@ -10,7 +10,7 @@ import BlurText from "./BlurText";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import TypewriterView from "./TypeWriter";
-import NumberFlow, { NumberFlowGroup } from "@number-flow/react";
+import NumberFlow, { NumberFlowGroup ,continuous} from "@number-flow/react";
 
 async function getCurrentTime() {
   const res = await axios.get(
@@ -20,6 +20,11 @@ async function getCurrentTime() {
 }
 
 export const Info = () => {
+  
+  const [currentExp ,setCurrentExp] = useState<number>(0);
+
+  
+
   type timeType = {
     isError: boolean;
     errorText: string;
@@ -40,6 +45,7 @@ export const Info = () => {
 
   // just once onMount
   useEffect(() => {
+    setCurrentExp(2);
     async function fetchTime() {
       try {
         setTimeLoading(true);
@@ -79,7 +85,7 @@ export const Info = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const nextSec = currentTime.Seconds + 1;
-
+      
       const data: timeType = {
         isError: false,
         errorText: "",
@@ -136,7 +142,8 @@ export const Info = () => {
                 </span>{" "}
                 with{" "}
                 <span className="font-semibold text-white">
-                  2+ years of experience
+                  <NumberFlow plugins={[continuous]} value={currentExp} transformTiming={{duration :1000}} />+ years of
+                  experience
                 </span>
                 , knowen for strong attention to details and pixel perfect
                 exceution of the projects
@@ -164,7 +171,7 @@ export const Info = () => {
               alt="user's profile"
               className="w-full h-full object-cover rounded-xl "
             />
-            
+
             <div className="flex absolute right-2 bottom-2  gap-2">
               <ConfigProvider
                 tooltip={{
