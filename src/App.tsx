@@ -7,6 +7,7 @@ import { ReactLenis } from "lenis/react";
 import GithubActivity from "./components/githubActivity/GithubActivity";
 
 import "./components/footer/footerBlur.css";
+import { Footer } from "./components/footer/Footer";
 
 function App() {
   return (
@@ -40,7 +41,16 @@ function App() {
           <GithubActivity />
         </div>
       </div>
+      
+
+      <div className="w-full  flex justify-center  border-b border-gray-800 bg-white">
+        <div className="w-[60%] flex justify-center  border-gray-800 transition-all duration-200 ease-in-out max-lg:w-[95%] max-2xl:w-[80%]">
+          <Footer />
+        </div>
+      </div>
+      
       <div className="w-full h-[50px] z-50 fixed bottom-0 backdrop-blur-[1px] custom-blur border-none outline-none"></div>
+      
     </div>
   );
 }
