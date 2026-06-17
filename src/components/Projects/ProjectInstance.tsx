@@ -17,15 +17,18 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
         <h1 className="text-sm text-gray-500 group-hover:translate-x-20 transition-all duration-300 ease-in-out">{props.ProjectYear}</h1>
       </div>
       
-      <div className="w-[30%] flex flex-wrap group-hover:-translate-x-20 duration-300 transition-all ease-in-out">
+      <div className="w-[30%] flex flex-wrap  duration-200 transition-all ease-in-out group">
         {props.tecksUsed.map((p, index) => {
           return (
             <div
               key={index}
-              className="px-2 py-1 m-1 flex justify-center items-center outline outline-1 outline-gray-700 gap-2 rounded-full text-gray-400  transition-all duration-200 ease-in-out hover:text-white hover:outline-white cursor-pointer"
+              className={`px-2 py-1 m-1 flex group-hover:-translate-x-20 justify-center items-center outline outline-1 outline-gray-700 gap-2 rounded-full text-gray-400  transition-all  ease-in-out hover:text-white hover:outline-white cursor-pointer`}
+                style={{
+                    transitionDuration : `${p.id * 150}ms`
+                }}
             >
               <p.icon />
-              <p className="max-md:hidden :">{p.text}</p>
+              <p className="max-md:hidden ">{p.text}</p>
             </div>
           );
         })}
