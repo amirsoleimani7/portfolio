@@ -10,7 +10,8 @@ import BlurText from "./BlurText";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import TypewriterView from "./TypeWriter";
-import NumberFlow, { NumberFlowGroup ,continuous} from "@number-flow/react";
+import NumberFlow, { NumberFlowGroup, continuous } from "@number-flow/react";
+import Magnet from "./MagneticButton";
 
 async function getCurrentTime() {
   const res = await axios.get(
@@ -20,10 +21,7 @@ async function getCurrentTime() {
 }
 
 export const Info = () => {
-  
-  const [currentExp ,setCurrentExp] = useState<number>(0);
-
-  
+  const [currentExp, setCurrentExp] = useState<number>(0);
 
   type timeType = {
     isError: boolean;
@@ -85,7 +83,7 @@ export const Info = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const nextSec = currentTime.Seconds + 1;
-      
+
       const data: timeType = {
         isError: false,
         errorText: "",
@@ -142,8 +140,12 @@ export const Info = () => {
                 </span>{" "}
                 with{" "}
                 <span className="font-semibold text-white">
-                  <NumberFlow plugins={[continuous]} value={currentExp} transformTiming={{duration :1000}} />+ years of
-                  experience
+                  <NumberFlow
+                    plugins={[continuous]}
+                    value={currentExp}
+                    transformTiming={{ duration: 1000 }}
+                  />
+                  + years of experience
                 </span>
                 , knowen for strong attention to details and pixel perfect
                 exceution of the projects
@@ -157,11 +159,11 @@ export const Info = () => {
               </p>
             </div>
           </div>
-          <div className="mt-auto">
-            <button className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all hover:outline-gray-500 duration-200">
-              <span>Download CV</span>
-            </button>
-          </div>
+            <div className="mt-auto">
+              <button className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all hover:outline-gray-500 duration-200">
+                <span>Download CV</span>
+              </button>
+            </div>
         </div>
 
         <div className="w-[40%] flex flex-col max-md:w-full max-md:mt-5 max-md:flex-row max-md:gap-4 max-sm:flex-col transition-all duration-200 ease-in-out h-full ">
