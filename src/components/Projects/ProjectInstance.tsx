@@ -11,11 +11,12 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
   console.log(is_last);
   
   return (
-    <div className="w-full h-[100px]  flex justify-between text-white">
+    <div className={`w-full h-[100px] items-center flex justify-between text-white`}>
       <div className="w-[30%]">
-        <h1>{props.projectName}</h1>
-        <h1>{props.ProjectYear}</h1>
+        <h1 className="text-xl letter-spacing font-bold tracking-wide">{props.projectName}</h1>
+        <h1 className="text-sm text-gray-500">{props.ProjectYear}</h1>
       </div>
+      
       <div className="w-[30%]  flex flex-wrap">
         {props.tecksUsed.map((p, index) => {
           return (

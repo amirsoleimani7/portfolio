@@ -55,11 +55,11 @@ function App() {
         </div>
       </div>
 
-      <div className="w-full h-[50px] z-50 fixed bottom-0 border-none outline-none">
+      <div className="w-full h-[50px] z-50 fixed bottom-0 border-none outline-none  ">
         <GradualBlur
           target="parent"
           position="bottom"
-          height="7rem"
+          height="5rem"
           strength={2}
           divCount={5}
           curve="bezier"

@@ -65,7 +65,7 @@ export const projects: ProjectInformationType[] = [
     ],
   },
   {
-    projectName: "Frontend Lab(mini projects)",
+    projectName: "Frontend Lab (mini projects)",
     ProjectYear: 2025,
     githubLink: "https://github.com/amirsoleimani7/frontend-lab",
     tecksUsed: [
