@@ -7,6 +7,7 @@ import { SiPytorch } from "react-icons/si";
 import { BsFiletypeScss } from "react-icons/bs";
 
 export type ProjectInformationType = {
+    
   projectName: string;
   ProjectYear: number;
   githubLink: string;

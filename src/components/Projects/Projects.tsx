@@ -2,7 +2,7 @@ import { projects } from "../../storage/data/ProjectsInformation";
 import { ProjectInstance } from "./ProjectInstance";
 
 export const Projects = () => {
-  console.log(projects);
+    
 
   return (
     <div className="w-full p-[5%] flex flex-col gap-5">
@@ -12,7 +12,7 @@ export const Projects = () => {
         </h1>
       </div>
       {projects.map((p, index) => {
-        return <ProjectInstance {...p} key={index} />;
+        return <ProjectInstance {...p} key={index} is_last={p == projects[-1]}/>;
       })}
     </div>
   );
