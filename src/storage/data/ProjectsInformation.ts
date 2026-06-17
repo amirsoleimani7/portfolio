@@ -6,14 +6,14 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { SiPytorch } from "react-icons/si";
 import { BsFiletypeScss } from "react-icons/bs";
 
-export type ProjectInformation = {
+export type ProjectInformationType = {
   projectName: string;
   ProjectYear: number;
   githubLink: string;
   tecksUsed: teckStackType[];
 };
 
-export const projects: ProjectInformation[] = [
+export const projects: ProjectInformationType[] = [
   {
     projectName: "LLM Robotics",
     ProjectYear: 2026,
