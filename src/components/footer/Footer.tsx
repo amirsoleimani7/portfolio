@@ -2,6 +2,7 @@ import "./customTrim.css";
 import RotatingText from "./FlipWords";
 import { Socials, SocialsType } from "../../storage/data/socials";
 import { ConfigProvider, Space, Tooltip } from "antd";
+import { FaRegCopyright } from "react-icons/fa";
 
 export const Footer = () => {
   return (
@@ -30,14 +31,14 @@ export const Footer = () => {
       <div className="w-full flex gap-1 mt-5">
         <div className="w-full flex flex-col gap-1">
           <h1 className="text-gray-500 font-semibold">Email</h1>
-          <h1 className="font-bold">amirsoleimani@ec.iut.ac.ir</h1>
+          <h1 className="font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">amirsoleimani@ec.iut.ac.ir</h1>
         </div>
         <div className="w-full flex flex-col gap-1">
           <h1 className="text-gray-500 font-semibold">Phone</h1>
-          <h1 className="font-semibold">+98 9171758529</h1>
+          <h1 className="font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">+98 9171758529</h1>
         </div>
         <div className="w-full flex flex-col gap-1">
-          <h1>Socials</h1>
+          <h1 className="font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">Socials</h1>
           <div className="">
             <ConfigProvider
               tooltip={{
@@ -55,8 +56,7 @@ export const Footer = () => {
                         container: {
                           borderRadius: "20px",
                           padding: "5px 10px 5px 10px",
-                          fontWeight: "500",
-                          
+                          fontWeight: "600",
                         },
                       }}
                       mouseEnterDelay={0.01}
@@ -64,7 +64,7 @@ export const Footer = () => {
                       {" "}
                       <button
                         key={index}
-                        className=" rounded-full px-4 py-2 bg-[rgba(0,0,0,0.7)] border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"
+                        className=" rounded-full px-3 py-2 bg-black border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"
                       >
                         <s.logo />
                       </button>
@@ -76,10 +76,14 @@ export const Footer = () => {
           </div>
         </div>
       </div>
+
       <div className="border-b border-gray-800 mt-5"></div>
+      <div className="flex items-center gap-1 justify-end w-full font-semibold text-gray-500 text-[12px] mt-5">
+       <FaRegCopyright/> <h1> 2026 Designed and developed by Amir Hossein Soleiamni</h1>        
+      </div>
       
       <div className="w-full flex justify-center  translate-y-[30%] pointer-events-none ">
-        <h1 className="font-BlackOps text-[400px] custom-trim b">AMIR</h1>
+        <h1 className="font-BlackOps text-[400px] custom-trim ">AMIR</h1>
       </div>
     </div>
   );
