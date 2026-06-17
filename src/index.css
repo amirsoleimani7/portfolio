@@ -27,8 +27,14 @@ html{
   src: url("/public/fonts/Lato,Rubik/Lato/Lato-Regular.ttf");
 }
 
+@font-face {
+  font-family: BlackOps;
+  src: url("/public/fonts/Black_Ops_One\,Lato\,Rubik/Black_Ops_One/BlackOpsOne-Regular.ttf");
+}
+
 ::-webkit-scrollbar{
   width: 0px;
   height: 0px;
   background-color: transparent;
 }
+
