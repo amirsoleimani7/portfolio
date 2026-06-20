@@ -212,7 +212,7 @@ export const Info = () => {
                         mouseEnterDelay={0.01}
                       >
                         {" "}
-                        <a href={s.link} target="_blank">
+                        <a href={s.link} target="_blank" rel="noreferrer">
                           <button
                             key={index}
                             className="w-10 h-10  rounded-full backdrop-blur-xl bg-[rgba(0,0,0,0.3)] border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"

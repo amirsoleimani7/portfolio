@@ -71,7 +71,7 @@ export const Footer = () => {
                       mouseEnterDelay={0.01}
                     >
                       {" "}
-                      <a href={s.link} target="_blank">
+                      <a href={s.link} target="_blank" rel="noreferrer">
                         <button
                           key={index}
                           className=" rounded-full px-3 py-2 bg-black border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"
