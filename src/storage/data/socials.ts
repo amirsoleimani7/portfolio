@@ -33,9 +33,10 @@ export const Socials: SocialsType[] = [
     id: 3,
     name: "linkedin",
     logo: FaLinkedin,
-    link: "www.linkedin.com/in/amir-hossein-soleimani-b2a603227",
+    link: "https://linkedin.com/in/amir-hossein-soleimani-b2a603227",
   },
 ];
+
 
 export type OtherType = {
   id: number;

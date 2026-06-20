@@ -107,7 +107,7 @@ export const Info = () => {
     // handling memmory leak
     return () => clearInterval(interval);
   }, [currentTime]);
-  
+
   return (
     <>
       <div className="flex w-full p-[5%] max-md:flex-col ">
@@ -158,11 +158,11 @@ export const Info = () => {
               </p>
             </div>
           </div>
-            <div className="mt-auto">
-              <button className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all hover:outline-gray-500 duration-200">
-                <span>Download CV</span>
-              </button>
-            </div>
+          <div className="mt-auto">
+            <button className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all hover:outline-gray-500 duration-200">
+              <span>Download CV</span>
+            </button>
+          </div>
         </div>
 
         <div className="w-[40%] flex flex-col max-md:w-full max-md:mt-5 max-md:flex-row max-md:gap-4 max-sm:flex-col transition-all duration-200 ease-in-out h-full ">
@@ -196,12 +196,14 @@ export const Info = () => {
                         mouseEnterDelay={0.01}
                       >
                         {" "}
-                        <button
-                          key={index}
-                          className="w-10 h-10  rounded-full backdrop-blur-xl bg-[rgba(0,0,0,0.3)] border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"
-                        >
-                          <s.logo />
-                        </button>
+                        <a href={s.link} target="_blank">
+                          <button
+                            key={index}
+                            className="w-10 h-10  rounded-full backdrop-blur-xl bg-[rgba(0,0,0,0.3)] border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"
+                          >
+                            <s.logo />
+                          </button>
+                        </a>
                       </Tooltip>
                     );
                   })}

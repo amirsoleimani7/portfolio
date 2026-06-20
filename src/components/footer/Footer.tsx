@@ -71,12 +71,14 @@ export const Footer = () => {
                       mouseEnterDelay={0.01}
                     >
                       {" "}
-                      <button
-                        key={index}
-                        className=" rounded-full px-3 py-2 bg-black border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"
-                      >
-                        <s.logo />
-                      </button>
+                      <a href={s.link} target="_blank">
+                        <button
+                          key={index}
+                          className=" rounded-full px-3 py-2 bg-black border-none  text-white flex items-center justify-center  hover:-translate-y-1 transition-all  duration-200"
+                        >
+                          <s.logo />
+                        </button>
+                      </a>
                     </Tooltip>
                   );
                 })}
@@ -88,9 +90,8 @@ export const Footer = () => {
 
       <div className="border-b border-gray-800 mt-5"></div>
       <div className="flex items-center gap-1 justify-end w-full font-semibold text-gray-500 text-[12px] mt-5">
-        
-          <FaRegCopyright />{" "}
-          <h1> 2026 Designed and developed by Amir Hossein Soleiamni</h1>
+        <FaRegCopyright />{" "}
+        <h1> 2026 Designed and developed by Amir Hossein Soleiamni</h1>
       </div>
 
       <div className="w-full flex justify-center  translate-y-[30%] pointer-events-none ">
