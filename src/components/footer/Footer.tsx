@@ -26,19 +26,28 @@ export const Footer = () => {
             loop
           />
         </div>
-        <h1 className="text-6xl text-gray-500 max-md:text-5xl">incredible work together.</h1>
+        <h1 className="text-6xl text-gray-500 max-md:text-5xl">
+          incredible work together.
+        </h1>
       </div>
+
       <div className="w-full flex gap-1 mt-5 max-sm:flex-col">
         <div className="w-full flex flex-col gap-1 max-sm:flex-row max-sm:justify-between max-sm:items-center">
           <h1 className="text-gray-500 font-semibold">Email</h1>
-          <h1 className="font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">amirsoleimani@ec.iut.ac.ir</h1>
+          <h1 className="font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">
+            amirsoleimani@ec.iut.ac.ir
+          </h1>
         </div>
         <div className="w-full flex flex-col gap-1 max-sm:flex-row max-sm:justify-between max-sm:items-center">
           <h1 className="text-gray-500 font-semibold">Phone</h1>
-          <h1 className="font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">+98 9171758529</h1>
+          <h1 className="font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">
+            +98 9171758529
+          </h1>
         </div>
         <div className="w-full flex flex-col gap-1 max-sm:flex-row max-sm:justify-between max-sm:items-center">
-          <h1 className="text-gray-500 font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">Socials</h1>
+          <h1 className="text-gray-500 font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">
+            Socials
+          </h1>
           <div className="">
             <ConfigProvider
               tooltip={{
@@ -79,11 +88,15 @@ export const Footer = () => {
 
       <div className="border-b border-gray-800 mt-5"></div>
       <div className="flex items-center gap-1 justify-end w-full font-semibold text-gray-500 text-[12px] mt-5">
-       <FaRegCopyright/> <h1> 2026 Designed and developed by Amir Hossein Soleiamni</h1>        
+        
+          <FaRegCopyright />{" "}
+          <h1> 2026 Designed and developed by Amir Hossein Soleiamni</h1>
       </div>
-      
+
       <div className="w-full flex justify-center  translate-y-[30%] pointer-events-none ">
-        <h1 className="font-BlackOps text-[400px] custom-trim max-lg:text-[300px] max-md:text-[200px] max-sm:text-[150px]">AMIR</h1>
+        <h1 className="font-BlackOps text-[400px] custom-trim max-lg:text-[300px] max-md:text-[200px] max-sm:text-[150px]">
+          AMIR
+        </h1>
       </div>
     </div>
   );

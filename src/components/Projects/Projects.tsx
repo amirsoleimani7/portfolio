@@ -12,20 +12,20 @@ export const Projects = () => {
       {projects.map((p, index) => {
         {
           return p === projects[projects.length - 1] ? (
-            <ProjectInstance
-              {...p}
-              key={index}
-              is_last={p === projects[projects.length - 1]}
-            />
-          ) : (
-            <div className="flex flex-col gap-5 w-full">
               <ProjectInstance
                 {...p}
                 key={index}
                 is_last={p === projects[projects.length - 1]}
               />
-              <div className="w-full border-b border-b-gray-800"></div>
-            </div>
+          ) : (
+              <div className="flex flex-col gap-5 w-full">
+                <ProjectInstance
+                  {...p}
+                  key={index}
+                  is_last={p === projects[projects.length - 1]}
+                />
+                <div className="w-full border-b border-b-gray-800"></div>
+              </div>
           );
         }
       })}
