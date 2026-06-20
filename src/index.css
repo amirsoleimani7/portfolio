@@ -29,8 +29,9 @@ html{
 
 @font-face {
   font-family: BlackOps;
-  src: url("/public/fonts/Black_Ops_One\,Lato\,Rubik/Black_Ops_One/BlackOpsOne-Regular.ttf");
+  src: url("/public/fonts/Black_Ops_One,Lato,Rubik/Black_Ops_One/BlackOpsOne-Regular.ttf");
 }
+
 
 ::-webkit-scrollbar{
   width: 0px;
