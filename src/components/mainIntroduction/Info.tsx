@@ -108,6 +108,18 @@ export const Info = () => {
     return () => clearInterval(interval);
   }, [currentTime]);
 
+  const handleDownloadResume = (): void => {
+    fetch("resume/amirhossein-soleimani.pdf").then((response) => {
+      response.blob().then((blob) => {
+        const fileURL = window.URL.createObjectURL(blob);
+        let alink = document.createElement("a");
+        alink.href = fileURL;
+        alink.download = "AmirHosseinSoleimani.pdf";
+        alink.click();
+      });
+    });
+  };
+
   return (
     <>
       <div className="flex w-full p-[5%] max-md:flex-col ">
@@ -159,7 +171,11 @@ export const Info = () => {
             </div>
           </div>
           <div className="mt-auto">
-            <button className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all hover:outline-gray-500 duration-200">
+            <button
+              className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-transform  hover:outline-gray-500 
+            active:translate-y-[2px] duration-200"
+              onClick={handleDownloadResume}
+            >
               <span>Download CV</span>
             </button>
           </div>
