@@ -16,6 +16,8 @@ export const userInformation: userType = {
     city : "Bushehr", 
     age : 22,
     developer : ["Frontend Developer"],
-    profile : "/images/profile-pic.jpeg"
+        profile: process.env.PUBLIC_URL + "/images/profile-pic.jpeg"
+
 }
+
 
