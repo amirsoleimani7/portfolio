@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TypewriterView from "./TypeWriter";
 import NumberFlow, { NumberFlowGroup, continuous } from "@number-flow/react";
-import Magnet from "./MagneticButton";
 
 async function getCurrentTime() {
   const res = await axios.get(
@@ -108,7 +107,7 @@ export const Info = () => {
     // handling memmory leak
     return () => clearInterval(interval);
   }, [currentTime]);
-
+  
   return (
     <>
       <div className="flex w-full p-[5%] max-md:flex-col ">
