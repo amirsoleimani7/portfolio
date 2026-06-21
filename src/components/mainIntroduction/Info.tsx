@@ -135,7 +135,7 @@ export const Info = () => {
               />
             </h1>
             <BlurText
-              text="Welcome To my portpolio Site!"
+              text="Welcome To my portfolio Site!"
               delay={50}
               animateBy="words"
               direction="bottom"
@@ -147,7 +147,7 @@ export const Info = () => {
               <p className="text-gray-400 leading-6">
                 I'm a{" "}
                 <span className="font-semibold text-white">
-                  Frontend Enginner
+                  Frontend Engineer
                 </span>{" "}
                 with{" "}
                 <span className="font-semibold text-white">
