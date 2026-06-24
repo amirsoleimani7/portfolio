@@ -61,6 +61,7 @@ function App() {
           <Footer />
         </div>
       </div>
+      
 
       <div className="w-full h-[50px] z-50 fixed bottom-0 border-none outline-none  ">
         <GradualBlur
