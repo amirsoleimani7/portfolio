@@ -88,7 +88,7 @@ export const Spotify = () => {
         </div>
 
         <div className="h-full flex items-center ">
-          <a href={lastTrack.link} target="_blank" className=" rounded-full px-3 py-2 border-none outline outline-1 outline-gray-600 duration-200 transition-all ease-in-out hover:outline-white group">
+          <a href={lastTrack.link} target="_blank" rel="noreferrer" className=" rounded-full px-3 py-2 border-none outline outline-1 outline-gray-600 duration-200 transition-all ease-in-out hover:outline-white group">
             <button className=" gap-5 flex items-center justify-between ">
               <h1 className="duration-200 transition-all ease-in-out group-hover:text-white text-gray-400">Listen on Last.fm </h1>
               <div className="rounded-full duration-200 transition-all ease-in-out group-hover:bg-white bg-gray-400 text-red-600 p-1">

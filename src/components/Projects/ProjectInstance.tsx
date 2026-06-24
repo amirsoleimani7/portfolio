@@ -6,7 +6,7 @@ type CustomType = ProjectInformationType & {
 
 export const ProjectInstance: React.FC<CustomType> = (props) => {
   return (
-    <a href={props.githubLink} target="_blank" className="w-full ">
+    <a href={props.githubLink} target="_blank" rel="noreferrer" className="w-full">
       <div
         className={`w-full h-[100px] items-center flex justify-between text-white group cursor-pointer relative`}
       >
