@@ -7,11 +7,11 @@ import { SiPytorch } from "react-icons/si";
 import { BsFiletypeScss } from "react-icons/bs";
 
 export type ProjectInformationType = {
-    
   projectName: string;
   ProjectYear: number;
   githubLink: string;
   tecksUsed: teckStackType[];
+  imageLink: string;
 };
 
 export const projects: ProjectInformationType[] = [
@@ -19,6 +19,7 @@ export const projects: ProjectInformationType[] = [
     projectName: "LLM Robotics",
     ProjectYear: 2026,
     githubLink: "https://github.com/amirsoleimani7/llm-robotics",
+    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/loading.png",
     tecksUsed: [
       {
         id: 1,
@@ -46,6 +47,8 @@ export const projects: ProjectInformationType[] = [
     projectName: "Smart Class",
     ProjectYear: 2025,
     githubLink: "https://github.com/amirsoleimani7/smart-class-project",
+    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/main-menu.png",
+
     tecksUsed: [
       {
         id: 1,
@@ -68,6 +71,7 @@ export const projects: ProjectInformationType[] = [
     projectName: "Frontend Lab (mini projects)",
     ProjectYear: 2025,
     githubLink: "https://github.com/amirsoleimani7/frontend-lab",
+    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/frontendLab.png",
     tecksUsed: [
       {
         id: 1,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ProjectInformationType } from "../../storage/data/ProjectsInformation";
 import { FloatingPreview } from "./FloatingPreview";
 
@@ -9,14 +9,14 @@ type CustomType = ProjectInformationType & {
 export const ProjectInstance: React.FC<CustomType> = (props) => {
   type postionType = {
     is_active: boolean;
-    x: number;
-    y: number;
+    x?: number;
+    y?: number;
   };
 
   const [mousePosition, setMousePosition] = useState<postionType>({
     is_active: false,
-    x: 0,
-    y: 0,
+    x: undefined,
+    y: undefined,
   });
 
   const updatePosition = (event: MouseEvent) => {
@@ -30,7 +30,7 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
   const handleEnter = () => {
     window.addEventListener("mousemove", updatePosition);
   };
-  
+
   const handleLeave = () => {
     window.removeEventListener("mousemove", updatePosition);
     console.log("left");
@@ -40,7 +40,7 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
       y: 0,
     });
   };
-  
+
   return (
     <a
       href={props.githubLink}
@@ -63,7 +63,7 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
         </div>
 
         <div className="w-[30%] flex flex-wrap  duration-200 transition-all ease-in-out group">
-          {props.tecksUsed.map((p, index) => {
+          {props.tecksUsed.map((p, index: number) => {
             return (
               <div
                 key={index}
@@ -79,8 +79,9 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
           })}
         </div>
       </div>
-
+      
       <FloatingPreview
+        imageUrl = {props.imageLink}
         is_active={mousePosition.is_active}
         x={mousePosition.x}
         y={mousePosition.y}
