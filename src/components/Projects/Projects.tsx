@@ -3,7 +3,6 @@ import { useState } from "react";
 import { ProjectInstance } from "./ProjectInstance";
 import { FloatingPreview } from "./FloatingPreview";
 
-
 export const Projects = () => {
   type postionType = {
     x?: number;
@@ -17,7 +16,7 @@ export const Projects = () => {
   // Handler to receive index from child
   const handleProjectHover = (index: number) => {
     setCurrentItem(index);
-    console.log('Hovering over project index:', index);
+    console.log("Hovering over project index:", index);
   };
 
   const updatePosition = (event: MouseEvent) => {
@@ -37,7 +36,6 @@ export const Projects = () => {
     setShow(false);
   };
 
-  
   return (
     <div
       className="w-full p-[5%] flex flex-col gap-5"
@@ -71,12 +69,13 @@ export const Projects = () => {
           </div>
         );
       })}
-
+      
       {show ? (
         <FloatingPreview
           x={mousePosition?.x}
           y={mousePosition?.y}
           currentIndex={currentItem} // Pass the current index to FloatingPreview
+          currentImage={projects[currentItem].imageLink}
         />
       ) : (
         <></>
