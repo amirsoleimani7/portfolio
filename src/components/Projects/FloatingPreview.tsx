@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 
 export interface PositionType {
+  currentIndex : number;
   x?: number;
   y?: number;
 }
