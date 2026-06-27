@@ -10,11 +10,11 @@ export interface PositionType {
 export const FloatingPreview: React.FC<PositionType> = (prop: PositionType) => {
   return (
     <motion.div
-      className="w-[100px] h-[100px]  bg-red-500 fixed pointer-events-none transition-all duration-200 ease-in-out"
+      className="w-[100px] h-[100px]  bg-red-500 fixed pointer-events-none"
       animate={{
         left: prop.x,
         top: prop.y,
-        opacity: `${prop.is_active ? 1 : 0}`,
+        opacity: `${prop.is_active ? "1" : "0"}`,
       }}
     />
   );

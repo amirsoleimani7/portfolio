@@ -1,12 +1,55 @@
+import React, { useEffect, useState } from "react";
 import { ProjectInformationType } from "../../storage/data/ProjectsInformation";
+import { FloatingPreview } from "./FloatingPreview";
 
 type CustomType = ProjectInformationType & {
   is_last: boolean;
 };
 
 export const ProjectInstance: React.FC<CustomType> = (props) => {
+  type postionType = {
+    is_active: boolean;
+    x: number;
+    y: number;
+  };
+
+  const [mousePosition, setMousePosition] = useState<postionType>({
+    is_active: false,
+    x: 0,
+    y: 0,
+  });
+
+  const updatePosition = (event: MouseEvent) => {
+    setMousePosition({
+      is_active: true,
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  const handleEnter = () => {
+    window.addEventListener("mousemove", updatePosition);
+  };
+  
+  const handleLeave = () => {
+    window.removeEventListener("mousemove", updatePosition);
+    console.log("left");
+    setMousePosition({
+      is_active: false,
+      x: 0,
+      y: 0,
+    });
+  };
+  
   return (
-    <a href={props.githubLink} target="_blank" rel="noreferrer" className="w-full">
+    <a
+      href={props.githubLink}
+      target="_blank"
+      rel="noreferrer"
+      className="w-full"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
       <div
         className={`w-full h-[100px] items-center flex justify-between text-white group cursor-pointer relative`}
       >
@@ -24,7 +67,7 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
             return (
               <div
                 key={index}
-                className={`px-2 py-1 m-1 flex group-hover:-translate-x-10 justify-center items-center outline outline-1 outline-gray-700 gap-2 rounded-full text-gray-400  transition-all  ease-in-out hover:text-white hover:outline-white cursor-pointer`}
+                className={`px-2 py-1 m-1 flex group-hover:-translate-x-10 justify-center items-center outline outline-1 outline-gray-700 gap-2 rounded-full text-gray-400  transition-all  ease-in-out hover:text-white hover:outline-white cursor-pointer `}
                 style={{
                   transitionDuration: `${p.id * 150}ms`,
                 }}
@@ -36,6 +79,12 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
           })}
         </div>
       </div>
+
+      <FloatingPreview
+        is_active={mousePosition.is_active}
+        x={mousePosition.x}
+        y={mousePosition.y}
+      />
     </a>
   );
 };
