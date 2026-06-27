@@ -1,53 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ProjectInformationType } from "../../storage/data/ProjectsInformation";
-import { FloatingPreview } from "./FloatingPreview";
 
 type CustomType = ProjectInformationType & {
   is_last: boolean;
 };
 
 export const ProjectInstance: React.FC<CustomType> = (props) => {
-  
-  type postionType = {
-    is_active: boolean;
-    x?: number;
-    y?: number;
-  };
-  
-
-  const [mousePosition, setMousePosition] = useState<postionType>({
-    is_active: false,
-    x: undefined,
-    y: undefined,
-  });
-
-  const [show, setShow] = useState<boolean>(false);
-
-  const updatePosition = (event: MouseEvent) => {
-    setMousePosition({
-      is_active: true,
-      x: event.clientX,
-      y: event.clientY - 210,
-    });
-  };
-  
-  const handleEnter = () => {
-    window.addEventListener("mousemove", updatePosition);
-    setShow(true);
-    setMousePosition({
-      is_active: true,
-    });
-  };
-
-  const handleLeave = () => {
-    window.removeEventListener("mousemove", updatePosition);
-    setShow(false);
-    setMousePosition({
-      is_active: false,
-      x: 0,
-      y: 0,
-    });
-  };
 
   return (
     <a
@@ -55,8 +13,6 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
       target="_blank"
       rel="noreferrer"
       className="w-full"
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
     >
       <div
         className={`w-full h-[100px] items-center flex justify-between text-white group cursor-pointer relative`}
@@ -87,17 +43,6 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
           })}
         </div>
       </div>
-
-      {show ? (
-        <FloatingPreview
-          imageUrl={props.imageLink}
-          is_active={mousePosition.is_active}
-          x={mousePosition.x}
-          y={mousePosition.y}
-        />
-      ) : (
-        <></>
-      )}
     </a>
   );
 };
