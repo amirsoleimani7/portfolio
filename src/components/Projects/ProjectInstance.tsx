@@ -27,10 +27,10 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
     setMousePosition({
       is_active: true,
       x: event.clientX,
-      y: event.clientY,
+      y: event.clientY - 210,
     });
   };
-
+  
   const handleEnter = () => {
     window.addEventListener("mousemove", updatePosition);
     setShow(true);
