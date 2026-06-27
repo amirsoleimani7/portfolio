@@ -7,17 +7,21 @@ type CustomType = ProjectInformationType & {
 };
 
 export const ProjectInstance: React.FC<CustomType> = (props) => {
+  
   type postionType = {
     is_active: boolean;
     x?: number;
     y?: number;
   };
+  
 
   const [mousePosition, setMousePosition] = useState<postionType>({
     is_active: false,
     x: undefined,
     y: undefined,
   });
+
+  const [show, setShow] = useState<boolean>(false);
 
   const updatePosition = (event: MouseEvent) => {
     setMousePosition({
@@ -29,11 +33,15 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
 
   const handleEnter = () => {
     window.addEventListener("mousemove", updatePosition);
+    setShow(true);
+    setMousePosition({
+      is_active: true,
+    });
   };
 
   const handleLeave = () => {
     window.removeEventListener("mousemove", updatePosition);
-    console.log("left");
+    setShow(false);
     setMousePosition({
       is_active: false,
       x: 0,
@@ -79,13 +87,17 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
           })}
         </div>
       </div>
-      
-      <FloatingPreview
-        imageUrl = {props.imageLink}
-        is_active={mousePosition.is_active}
-        x={mousePosition.x}
-        y={mousePosition.y}
-      />
+
+      {show ? (
+        <FloatingPreview
+          imageUrl={props.imageLink}
+          is_active={mousePosition.is_active}
+          x={mousePosition.x}
+          y={mousePosition.y}
+        />
+      ) : (
+        <></>
+      )}
     </a>
   );
 };
