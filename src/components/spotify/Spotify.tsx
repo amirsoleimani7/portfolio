@@ -85,7 +85,6 @@ export const Spotify = () => {
         </h1>
       </div>
       <div className="w-full flex justify-between items-center max-sm:flex-col">
-
         <div className="flex  h-full gap-5 text-white items-center max-sm:self-start">
           <div className="w-20 h-20 rounded-full ">
             {isLoading ? (
@@ -112,7 +111,6 @@ export const Spotify = () => {
                 duration={1.5}
                 className="w-full !block bg-green-300"
                 baseColor="#4b5563"
-                
               />
               <Skeleton
                 duration={1.5}
