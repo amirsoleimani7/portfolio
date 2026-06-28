@@ -69,7 +69,7 @@ export const Projects = () => {
           </div>
         );
       })}
-      
+
       {show ? (
         <FloatingPreview
           x={mousePosition?.x}

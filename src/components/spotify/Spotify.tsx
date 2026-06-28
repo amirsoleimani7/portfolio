@@ -25,7 +25,7 @@ export const Spotify = () => {
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  // const [isImageLoading, setisImageLoading] = useState<boolean>(true);
+  const [isImageLoading, setisImageLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function getTrack() {
@@ -53,14 +53,6 @@ export const Spotify = () => {
                 link: last_track.url[0],
               });
 
-              const img = new Image();
-              img.onload = () => {
-                setIsLoading(false);
-                console.log("loadded!");
-              };
-
-              img.src = last_track.url[3];
-
               setIsLoading(false);
             }
           });
@@ -87,7 +79,7 @@ export const Spotify = () => {
       <div className="w-full flex justify-between items-center max-sm:flex-col">
         <div className="flex  h-full gap-5 text-white items-center max-sm:self-start">
           <div className="w-20 h-20 rounded-full ">
-            {isLoading ? (
+            {isImageLoading && (
               <div className="w-full h-full">
                 <Skeleton
                   duration={1.5}
@@ -96,13 +88,18 @@ export const Spotify = () => {
                   className="w-full h-full !block"
                 />
               </div>
-            ) : (
-              <img
-                src={lastTrack.trackImage}
-                alt="tracks profile pic"
-                className="w-full h-full rounded-full flex shrink-0"
-              />
             )}
+            <img
+              style={{
+                display: `${!isImageLoading ? "block" : "none"}`,
+              }}
+              src={lastTrack.trackImage}
+              onLoad={() => {
+                setisImageLoading(false);
+              }}
+              alt="tracks profile pic"
+              className="w-full h-full rounded-full flex shrink-0"
+            />
           </div>
 
           {isLoading ? (

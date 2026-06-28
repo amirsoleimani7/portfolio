@@ -10,11 +10,20 @@ export interface PositionType {
 }
 
 export const FloatingPreview: React.FC<PositionType> = (prop: PositionType) => {
-  
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [lastImage, setLastImage] = useState<string>("");
+  const [transition, setTransition] = useState<boolean>(false);
 
-  
+  useEffect(() => {
+    console.log(prop.currentImage);
+    if (prop.currentImage !== lastImage) {
+      setLastImage(prop.currentImage);
+      setTransition(true);
+      return;
+    }
+    setTransition(false);
+  }, [prop.currentImage]);
+
   return (
     <motion.div
       className="w-[350px] h-[200px]  fixed pointer-events-none overflow-hidden rounded-xl z-50 bg-gray-800 scale-0"
@@ -25,24 +34,37 @@ export const FloatingPreview: React.FC<PositionType> = (prop: PositionType) => {
         transition: { duration: 0.1 },
       }}
     >
-      
       <img
         src={prop.currentImage}
-        className="w-full h-full object-cover"
+        className={`w-full h-full object-cover transition-all duration-1000 ${transition ? "translate-x-full" : ""}`}
         style={{ display: isLoading ? "none" : "block" }}
-        alt="projects sample picture"
-        
+        alt="projects sample"
         onLoad={() => {
           console.log("loaded");
           setIsLoading(false);
         }}
-        
         onError={() => {
           console.log("error loading image");
-          setIsLoading(true); 
+          setIsLoading(true);
         }}
       />
-      
+
+      {transition && (
+        <img
+          src={lastImage}
+          className={`w-full h-full object-cover transition-all duration-1000  -translate-x-full ${transition ? "translate-x-full" : ""}`}
+          style={{ display: isLoading ? "none" : "block" }}
+          alt="projects sample"
+          onLoad={() => {
+            console.log("loaded");
+            setIsLoading(false);
+          }}
+          onError={() => {
+            console.log("error loading image");
+            setIsLoading(true);
+          }}
+        />
+      )}
       {isLoading && (
         <div className="w-full h-full absolute top-0 left-0">
           <Skeleton
