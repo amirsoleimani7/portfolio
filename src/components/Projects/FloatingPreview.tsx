@@ -3,30 +3,27 @@ import { motion } from "motion/react";
 import Skeleton from "react-loading-skeleton";
 
 export interface PositionType {
-  currentIndex: number;
-  currentImage: string;
+  currentIndex: number[];
+  allImages : string[];
   x?: number;
   y?: number;
 }
 
 export const FloatingPreview: React.FC<PositionType> = (prop: PositionType) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [lastImage, setLastImage] = useState<string>("");
-  const [transition, setTransition] = useState<boolean>(false);
+  const [lastIndex, setLastIndex] = useState<number>(0);
+  const [transition, setTransition] = useState<boolean>(true);
 
   useEffect(() => {
-    console.log(prop.currentImage);
-    if (prop.currentImage !== lastImage) {
-      setLastImage(prop.currentImage);
-      setTransition(true);
-      return;
-    }
-    setTransition(false);
-  }, [prop.currentImage]);
+    
+  }, [prop.currentIndex]);
+  
+  console.log(prop.currentIndex);
+  
 
   return (
     <motion.div
-      className="w-[350px] h-[200px]  fixed pointer-events-none overflow-hidden rounded-xl z-50 bg-gray-800 scale-0"
+      className="w-[350px] h-[200px]  fixed pointer-events-none  rounded-xl z-50 bg-gray-800 scale-0"
       animate={{
         scale: 1,
         left: prop.x,
@@ -35,9 +32,22 @@ export const FloatingPreview: React.FC<PositionType> = (prop: PositionType) => {
       }}
     >
       <img
-        src={prop.currentImage}
-        className={`w-full h-full object-cover transition-all duration-1000 ${transition ? "translate-x-full" : ""}`}
-        style={{ display: isLoading ? "none" : "block" }}
+        src={prop.allImages[prop.currentIndex[1]]}
+        className={`w-full h-full object-cover transition-all  duration-1000 translate-x-full`}
+        alt="projects sample"
+        onLoad={() => {
+          console.log("loaded");
+          setIsLoading(false);
+        }}
+        onError={() => {
+          console.log("error loading image");
+          setIsLoading(true);
+        }}
+      />
+      
+      <img
+        src={prop.allImages[prop.currentIndex[0]]}
+        className={`w-full h-full object-cover transition-all  duration-1000 translate-x-full`}
         alt="projects sample"
         onLoad={() => {
           console.log("loaded");
@@ -49,22 +59,6 @@ export const FloatingPreview: React.FC<PositionType> = (prop: PositionType) => {
         }}
       />
 
-      {transition && (
-        <img
-          src={lastImage}
-          className={`w-full h-full object-cover transition-all duration-1000  -translate-x-full ${transition ? "translate-x-full" : ""}`}
-          style={{ display: isLoading ? "none" : "block" }}
-          alt="projects sample"
-          onLoad={() => {
-            console.log("loaded");
-            setIsLoading(false);
-          }}
-          onError={() => {
-            console.log("error loading image");
-            setIsLoading(true);
-          }}
-        />
-      )}
       {isLoading && (
         <div className="w-full h-full absolute top-0 left-0">
           <Skeleton

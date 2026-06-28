@@ -1,5 +1,5 @@
 import { projects } from "../../storage/data/ProjectsInformation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ProjectInstance } from "./ProjectInstance";
 import { FloatingPreview } from "./FloatingPreview";
 
@@ -11,12 +11,20 @@ export const Projects = () => {
 
   const [mousePosition, setMousePosition] = useState<postionType>({});
   const [show, setShow] = useState<boolean>(false);
-  const [currentItem, setCurrentItem] = useState<number>(0);
+  const [currentItem, setCurrentItem] = useState<number[]>([0, 0]);
+  const indexRef = useRef<number>(0);
 
   // Handler to receive index from child
   const handleProjectHover = (index: number) => {
-    setCurrentItem(index);
-    console.log("Hovering over project index:", index);
+    if (indexRef.current == 2) {
+      indexRef.current = 0;
+    }
+
+    const new_list: number[] = [currentItem[1], index];
+    setCurrentItem(new_list);
+
+    indexRef.current += 1;
+    
   };
 
   const updatePosition = (event: MouseEvent) => {
@@ -75,7 +83,7 @@ export const Projects = () => {
           x={mousePosition?.x}
           y={mousePosition?.y}
           currentIndex={currentItem} // Pass the current index to FloatingPreview
-          currentImage={projects[currentItem].imageLink}
+          allImages={projects.map((p) => p.imageLink)}
         />
       ) : (
         <></>
