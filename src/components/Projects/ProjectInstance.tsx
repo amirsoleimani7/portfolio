@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ProjectInformationType } from "../../storage/data/ProjectsInformation";
 
 type CustomType = ProjectInformationType & {
