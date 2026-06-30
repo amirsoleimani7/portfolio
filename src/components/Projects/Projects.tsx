@@ -12,19 +12,16 @@ export const Projects = () => {
   const [mousePosition, setMousePosition] = useState<postionType>({});
   const [show, setShow] = useState<boolean>(false);
   const [currentItem, setCurrentItem] = useState<number[]>([0, 0]);
-  const indexRef = useRef<number>(0);
+  const lastHoveredIndex = useRef<number>(0);
 
   // Handler to receive index from child
   const handleProjectHover = (index: number) => {
-    if (indexRef.current == 2) {
-      indexRef.current = 0;
+    // Only update if it's a different index than the last one
+    if (index !== lastHoveredIndex.current) {
+      const new_list: number[] = [lastHoveredIndex.current, index];
+      setCurrentItem(new_list);
+      lastHoveredIndex.current = index;
     }
-
-    const new_list: number[] = [currentItem[1], index];
-    setCurrentItem(new_list);
-
-    indexRef.current += 1;
-    
   };
 
   const updatePosition = (event: MouseEvent) => {
@@ -37,11 +34,16 @@ export const Projects = () => {
   const handleEnter = () => {
     window.addEventListener("mousemove", updatePosition);
     setShow(true);
+    // Set initial hovered index
+    lastHoveredIndex.current = 0;
+    setCurrentItem([0, 0]);
   };
 
   const handleLeave = () => {
     window.removeEventListener("mousemove", updatePosition);
     setShow(false);
+    // Reset when leaving
+    lastHoveredIndex.current = 0;
   };
 
   return (
@@ -63,7 +65,7 @@ export const Projects = () => {
             key={index}
             index={index}
             is_last={p === projects[projects.length - 1]}
-            onHover={handleProjectHover} // Pass the handler
+            onHover={handleProjectHover}
           />
         ) : (
           <div className="flex flex-col gap-5 w-full" key={index}>
@@ -71,7 +73,7 @@ export const Projects = () => {
               {...p}
               index={index}
               is_last={p === projects[projects.length - 1]}
-              onHover={handleProjectHover} // Pass the handler
+              onHover={handleProjectHover}
             />
             <div className="w-full border-b border-b-gray-800"></div>
           </div>
@@ -82,7 +84,7 @@ export const Projects = () => {
         <FloatingPreview
           x={mousePosition?.x}
           y={mousePosition?.y}
-          currentIndex={currentItem} // Pass the current index to FloatingPreview
+          currentIndex={currentItem}
           allImages={projects.map((p) => p.imageLink)}
         />
       ) : (

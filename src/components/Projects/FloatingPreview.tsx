@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { motion } from "motion/react";
 import Skeleton from "react-loading-skeleton";
 
@@ -11,13 +11,10 @@ export interface PositionType {
 
 export const FloatingPreview: React.FC<PositionType> = (prop: PositionType) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [transition, setTransition] = useState<boolean>(true);
-
-  useEffect(() => {}, [prop.currentIndex]);
-
+  
   return (
     <motion.div
-      className="w-[350px] h-[200px] fixed pointer-events-none  rounded-xl z-50 bg-gray-800 scale-0 "
+      className="w-[350px] h-[200px] fixed pointer-events-none rounded-xl z-50 bg-gray-800 scale-0 overflow-hidden outline outline-1 outline-gray-600"
       animate={{
         scale: 1,
         left: prop.x,
@@ -25,35 +22,13 @@ export const FloatingPreview: React.FC<PositionType> = (prop: PositionType) => {
         transition: { duration: 0.1 },
       }}
     >
-      <div className="w-full h-full relative">
-        <img
-          src={prop.allImages[prop.currentIndex[1]]}
-          className={`w-full h-full object-cover transition-all  duration-100 absolute `}
-          alt="projects sample"
-          onLoad={() => {
-            console.log("loaded");
-            setIsLoading(false);
-          }}
-          onError={() => {
-            console.log("error loading image");
-            setIsLoading(true);
-          }}
-        />
-
-        <img
-          src={prop.allImages[prop.currentIndex[0]]}
-          className={`w-full h-full object-cover transition-all  duration-100 absolute `}
-          alt="projects sample"
-          onLoad={() => {
-            console.log("loaded");
-            setIsLoading(false);
-          }}
-          onError={() => {
-            console.log("error loading image");
-            setIsLoading(true);
-          }}
-        />
-      </div>
+      <img
+        src={prop.allImages[prop.currentIndex[1]]}
+        className={`w-full h-full object-cover absolute left-0 transition-all duration-300 ease-in-out`}
+        alt="projects sample"
+        onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(true)}
+      />
 
       {isLoading && (
         <div className="w-full h-full absolute top-0 left-0">
