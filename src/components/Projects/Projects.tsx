@@ -1,5 +1,5 @@
 import { projects } from "../../storage/data/ProjectsInformation";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { ProjectInstance } from "./ProjectInstance";
 import { FloatingPreview } from "./FloatingPreview";
 
@@ -11,19 +11,12 @@ export const Projects = () => {
 
   const [mousePosition, setMousePosition] = useState<postionType>({});
   const [show, setShow] = useState<boolean>(false);
-  const [currentItem, setCurrentItem] = useState<number[]>([0, 0]);
-  const lastHoveredIndex = useRef<number>(0);
+  const [currentItem, setCurrentItem] = useState<number>(0);
 
-  // Handler to receive index from child
   const handleProjectHover = (index: number) => {
-    // Only update if it's a different index than the last one
-    if (index !== lastHoveredIndex.current) {
-      const new_list: number[] = [lastHoveredIndex.current, index];
-      setCurrentItem(new_list);
-      lastHoveredIndex.current = index;
-    }
+    setCurrentItem(index);
   };
-
+  
   const updatePosition = (event: MouseEvent) => {
     setMousePosition({
       x: event.clientX,
@@ -34,16 +27,11 @@ export const Projects = () => {
   const handleEnter = () => {
     window.addEventListener("mousemove", updatePosition);
     setShow(true);
-    // Set initial hovered index
-    lastHoveredIndex.current = 0;
-    setCurrentItem([0, 0]);
   };
 
   const handleLeave = () => {
     window.removeEventListener("mousemove", updatePosition);
     setShow(false);
-    // Reset when leaving
-    lastHoveredIndex.current = 0;
   };
 
   return (
@@ -84,9 +72,8 @@ export const Projects = () => {
         <FloatingPreview
           x={mousePosition?.x}
           y={mousePosition?.y}
-          currentIndex={currentItem}
-          allImages={projects.map((p) => p.imageLink)}
-        />
+          currentImage={projects[currentItem].imageLink}
+          />
       ) : (
         <></>
       )}

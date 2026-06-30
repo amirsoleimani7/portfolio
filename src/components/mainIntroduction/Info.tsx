@@ -110,7 +110,7 @@ export const Info = () => {
   }, [currentTime]);
 
   const handleDownloadResume = (): void => {
-    fetch("resume/amirhossein-soleimani.pdf").then((response) => {
+    fetch(process.env.PUBLIC_URL + "/resume/amirhossein-soleimani.pdf").then((response) => {
       response.blob().then((blob) => {
         const fileURL = window.URL.createObjectURL(blob);
         let alink = document.createElement("a");
@@ -171,13 +171,13 @@ export const Info = () => {
               </p>
             </div>
           </div>
-          <div className="mt-auto w-[200px] h-[50px] overflow-hidden">
+          <div className="mt-auto w-[200px] h-[50px]">
             <BorderBeam
-              size="pulse-inner"
+              size="pulse-outside"
               colorVariant="mono"
             >
               <button
-                className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-transform  hover:outline-gray-500 
+                className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all  hover:outline-gray-500 
               active:translate-y-[2px] duration-200"
                 onClick={handleDownloadResume}
               >
