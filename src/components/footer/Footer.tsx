@@ -35,7 +35,7 @@ export const Footer = () => {
         <div className="w-full flex flex-col gap-1 max-sm:flex-row max-sm:justify-between max-sm:items-center">
           <h1 className="text-gray-500 font-semibold">Email</h1>
           <h1 className="font-semibold transition-all duration-200 ease-in-out hover:text-gray-500 cursor-pointer">
-            amirsoleimani@ec.iut.ac.ir
+            a.soleimani@ec.iut.ac.ir
           </h1>
         </div>
         <div className="w-full flex flex-col gap-1 max-sm:flex-row max-sm:justify-between max-sm:items-center">
