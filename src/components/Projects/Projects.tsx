@@ -55,7 +55,7 @@ export const Projects = () => {
           return (
             <div
               className="flex flex-col p-5 
-             border border-gray-800 *:select-none group cursor-pointer duration-200 ease-in-out transition-all hover:border-gray-600"
+             border border-gray-800 *:select-none group cursor-pointer duration-200 ease-in-out transition-all hover:border-gray-600 "
             >
               <div className="overflow-hidden relative ">
                 <LoadingInstance {...p} />

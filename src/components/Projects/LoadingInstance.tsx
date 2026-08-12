@@ -11,17 +11,21 @@ export default function LoadingInstance(p: ProjectInformationType) {
       <img
         src={p.imageLink}
         alt=""
+        width={100}
+        height={50}
         onLoad={() => {
           setIsLoading(false);
         }}
         className="w-full h-full object-cover ease-in-out transition-all duration-200  group-hover:scale-105 cursor-pointer"
       />
       {isLoading && (
-        <Skeleton
-          duration={1.5}
-          className="w-full h-full !block bg-green-300"
-          baseColor="#4b5563"
-        />
+        <div className="w-full h-full absolute top-0 left-0">
+          <Skeleton
+            duration={1.5}
+            baseColor="#4b5563"
+            className="w-full h-full !block"
+          />
+        </div>
       )}
     </div>
   );
