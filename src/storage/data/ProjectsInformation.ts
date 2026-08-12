@@ -11,6 +11,7 @@ export type ProjectInformationType = {
   ProjectYear: number;
   githubLink: string;
   tecksUsed: teckStackType[];
+  desc: string;
   imageLink: string;
 };
 
@@ -20,6 +21,7 @@ export const projects: ProjectInformationType[] = [
     ProjectYear: 2026,
     githubLink: "https://github.com/amirsoleimani7/llm-robotics",
     imageLink: process.env.PUBLIC_URL + "/images/projectsImage/loading.png",
+    desc: "using llm for making multi step plans for robots, chatui is included for better experience, connection is RESTfull api with django app",
     tecksUsed: [
       {
         id: 1,
@@ -48,7 +50,7 @@ export const projects: ProjectInformationType[] = [
     ProjectYear: 2025,
     githubLink: "https://github.com/amirsoleimani7/smart-class-project",
     imageLink: process.env.PUBLIC_URL + "/images/projectsImage/main-menu.png",
-
+    desc: "A “smart classroom” system that combines webserver(ui) , computer vision",
     tecksUsed: [
       {
         id: 1,
@@ -72,6 +74,8 @@ export const projects: ProjectInformationType[] = [
     ProjectYear: 2025,
     githubLink: "https://github.com/amirsoleimani7/frontend-lab",
     imageLink: process.env.PUBLIC_URL + "/images/projectsImage/frontendLab.png",
+    desc: "some of my projects in the frontend field",
+
     tecksUsed: [
       {
         id: 1,

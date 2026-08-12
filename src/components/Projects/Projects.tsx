@@ -16,7 +16,7 @@ export const Projects = () => {
   const handleProjectHover = (index: number) => {
     setCurrentItem(index);
   };
-  
+
   const updatePosition = (event: MouseEvent) => {
     setMousePosition({
       x: event.clientX,
@@ -46,38 +46,25 @@ export const Projects = () => {
         </h1>
       </div>
 
-      {projects.map((p, index) => {
-        return p === projects[projects.length - 1] ? (
-          <ProjectInstance
-            {...p}
-            key={index}
-            index={index}
-            is_last={p === projects[projects.length - 1]}
-            onHover={handleProjectHover}
-          />
-        ) : (
-          <div className="flex flex-col gap-5 w-full bg-red-500" key={index} >
-            <ProjectInstance
-              {...p}
-              index={index}
-              is_last={p === projects[projects.length - 1]}
-              onHover={handleProjectHover}
-            />
-            <div className="w-full border-b border-b-gray-800 "></div>
-          </div>
-        );
-      })}
-      {/* test change */}
-      {"test to"}
-      {show ? (
-        <FloatingPreview
-          x={mousePosition?.x}
-          y={mousePosition?.y}
-          currentImage={projects[currentItem].imageLink}
-          />
-      ) : (
-        <></>
-      )}
+      <div className="grid  w-full h-200 grid-cols-2 p-5 gap-1 max-lg:grid-cols-1">
+        {projects.map((p, index) => {
+          return (
+            <div className="p-5 border border-gray-800 *:select-none">
+              <div className="overflow-hidden">
+                <img
+                  src={p.imageLink}
+                  alt=""
+                  className=" object-cover ease-in-out transition-all duration-300  hover:scale-110 cursor-pointer"
+                />
+              </div>
+              <div className="flex flex-col gap-1 mt-2">
+                <h1 className="text-white font-semibold">{p.projectName}</h1>
+                <p className="text-gray-400">{p.desc}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
