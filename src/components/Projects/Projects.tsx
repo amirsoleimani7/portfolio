@@ -56,14 +56,14 @@ export const Projects = () => {
             onHover={handleProjectHover}
           />
         ) : (
-          <div className="flex flex-col gap-5 w-full" key={index}>
+          <div className="flex flex-col gap-5 w-full bg-red-500" key={index} >
             <ProjectInstance
               {...p}
               index={index}
               is_last={p === projects[projects.length - 1]}
               onHover={handleProjectHover}
             />
-            <div className="w-full border-b border-b-gray-800"></div>
+            <div className="w-full border-b border-b-gray-800 "></div>
           </div>
         );
       })}
