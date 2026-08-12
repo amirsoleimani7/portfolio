@@ -99,4 +99,34 @@ export const projects: ProjectInformationType[] = [
       },
     ],
   },
+  {
+    projectName: "HotWire digital twin",
+    ProjectYear: 2025,
+    githubLink: "https://github.com/amirsoleimani7/hotwire-digital-twin",
+    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/hotwire.png",
+    desc: "A full IoT-based Digital Twin system that visualizes real-world sensor data in a Unity 3D environment",
+
+    tecksUsed: [
+      {
+        id: 1,
+        text: "Unity",
+      },
+      {
+        id: 2,
+        text: "esp32",
+      },
+      {
+        id: 3,
+        text: "MQTT",
+      },
+      {
+        id: 4,
+        text: "WebSocket",
+      },
+      {
+        id: 4,
+        text: "Thingsbord",
+      },
+    ],
+  },
 ];

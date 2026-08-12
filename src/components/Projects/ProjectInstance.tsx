@@ -45,7 +45,7 @@ export const ProjectInstance: React.FC<CustomType> = (props) => {
                   transitionDuration: `${p.id * 150}ms`,
                 }}
               >
-                <p.icon />
+                {p.icon ? <p.icon /> : ""}
                 <p className="max-md:hidden">{p.text}</p>
               </div>
             );

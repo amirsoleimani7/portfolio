@@ -27,7 +27,7 @@ import { FaLinux } from "react-icons/fa";
 export type teckStackType = {
   id: number;
   text: string;
-  icon: IconType;
+  icon?: IconType;
 };
 
 export const teckStack: teckStackType[] = [
