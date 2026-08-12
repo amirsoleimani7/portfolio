@@ -57,8 +57,8 @@ function App() {
           <GithubActivity />
         </div>
       </div>
-      <div className="w-full  flex justify-center  border-b border-gray-800">
-        <div className="w-[60%] flex justify-center border-r border-l border-gray-800 transition-all duration-200 ease-in-out max-lg:w-[97%] max-2xl:w-[80%]">
+      <div className="w-full  flex justify-center  border-b border-gray-800 ">
+        <div className=" w-[60%] flex justify-center border-r border-l border-gray-800 transition-all duration-200 ease-in-out max-lg:w-[97%] max-2xl:w-[80%]">
           <Projects />
         </div>
       </div>
