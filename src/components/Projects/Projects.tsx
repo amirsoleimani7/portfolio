@@ -1,7 +1,11 @@
-import { projects } from "../../storage/data/ProjectsInformation";
+import {
+  projects,
+  ProjectInformationType,
+} from "../../storage/data/ProjectsInformation";
 
 import { FaCode } from "react-icons/fa";
 import { FaLink } from "react-icons/fa";
+import LoadingInstance from "./LoadingInstance";
 
 export const Projects = () => {
   // type postionType = {
@@ -47,20 +51,14 @@ export const Projects = () => {
       </div>
 
       <div className="grid  w-full h-200 grid-cols-2  gap-1 max-lg:grid-cols-1 ">
-        {projects.map((p, index) => {
+        {projects.map((p: ProjectInformationType, index: number) => {
           return (
             <div
               className="flex flex-col p-5 
              border border-gray-800 *:select-none group cursor-pointer duration-200 ease-in-out transition-all hover:border-gray-600"
             >
               <div className="overflow-hidden relative ">
-                <div className="overflow-hidden w-full h-full ">
-                  <img
-                    src={p.imageLink}
-                    alt=""
-                    className="w-full h-full object-cover ease-in-out transition-all duration-200  group-hover:scale-105 cursor-pointer"
-                  />
-                </div>
+                <LoadingInstance {...p} />
                 <div className=" flex gap-2 p-2 justify-end w-full h-15 z-10 duration-100 ease-linear opacity-0 group-hover:opacity-100 transition-all -translate-y-full backdrop-blur-xl bg-black/5">
                   <a href={p.githubLink} target="_blank" rel="noreferrer">
                     <div className="flex items-center gap-2 border border-white/30 hover:border-white py-1 px-2 rounded-2xl text-gray-300 hover:text-white backdrop-blur-sm bg-black/20 duration-200 ease-in-out transition-all">
