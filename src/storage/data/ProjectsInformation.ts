@@ -10,6 +10,7 @@ export type ProjectInformationType = {
   projectName: string;
   ProjectYear: number;
   githubLink: string;
+  liveLink?: string;
   tecksUsed: teckStackType[];
   desc: string;
   imageLink: string;
@@ -187,7 +188,6 @@ export const projects: ProjectInformationType[] = [
         id: 4,
         text: "(Timer RPM)",
       },
-
       {
         id: 5,
         text: "Proteus",

@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TypewriterView from "./TypeWriter";
 import NumberFlow, { NumberFlowGroup, continuous } from "@number-flow/react";
-import { BorderBeam } from "border-beam";
 
 async function getCurrentTime() {
   const res = await axios.get(
@@ -172,10 +171,6 @@ export const Info = () => {
             </div>
           </div>
           <div className="mt-auto w-[200px] h-[50px]">
-            {/* <BorderBeam
-              size="pulse-outside"
-              colorVariant="mono"
-            > */}
               <button
                 className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all  hover:outline-gray-500 
               active:translate-y-[2px] duration-200"
@@ -183,7 +178,6 @@ export const Info = () => {
               >
                 <span>Download CV</span>
               </button>
-            {/* </BorderBeam> */}
           </div>
         </div>
 
