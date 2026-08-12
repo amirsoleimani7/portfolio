@@ -67,7 +67,7 @@ export const Projects = () => {
           </div>
         );
       })}
-
+      {/* test change */}
       {show ? (
         <FloatingPreview
           x={mousePosition?.x}
