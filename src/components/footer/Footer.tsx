@@ -94,8 +94,8 @@ export const Footer = () => {
         <h1> 2026 Designed and developed by Amir Hossein Soleiamni</h1>
       </div>
 
-      <div className="w-full flex justify-center  translate-y-[30%] pointer-events-none ">
-        <h1 className="font-BlackOps text-[400px] custom-trim max-lg:text-[300px] max-md:text-[200px] max-sm:text-[150px]">
+      <div className="w-full flex justify-center   pointer-events-none ">
+        <h1 className="font-BlackOps text-[200px] custom-trim max-lg:text-[300px] max-md:text-[200px] max-sm:text-[150px]">
           AMIR
         </h1>
       </div>
