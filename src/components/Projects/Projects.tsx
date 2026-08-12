@@ -60,7 +60,7 @@ export const Projects = () => {
                     className="w-full h-full object-cover ease-in-out transition-all duration-200  group-hover:scale-105 cursor-pointer"
                   />
                 </div>
-                <div className="flex gap-2 p-2 justify-end w-full h-15 z-10 duration-200 ease-linear opacity-0 group-hover:opacity-100 transition-all translate-y-full group-hover:-translate-y-full backdrop-blur-xl bg-black/5">
+                <div className="flex gap-2 p-2 justify-end w-full h-15 z-10 duration-100 ease-linear opacity-0 group-hover:opacity-100 transition-all -translate-y-full backdrop-blur-xl bg-black/5">
                   <div className="flex items-center gap-2 border border-white/30 hover:border-white py-1 px-2 rounded-2xl text-gray-300 hover:text-white backdrop-blur-sm bg-black/20 duration-200 ease-in-out transition-all">
                     <span>code</span>
                     <FaCode />
