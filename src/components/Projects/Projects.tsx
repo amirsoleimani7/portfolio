@@ -1,8 +1,9 @@
 import { projects } from "../../storage/data/ProjectsInformation";
 import { useState } from "react";
-import { ProjectInstance } from "./ProjectInstance";
-import { FloatingPreview } from "./FloatingPreview";
-import { BsArrowReturnRight } from "react-icons/bs";
+
+import { FaCode } from "react-icons/fa";
+import { FaLink } from "react-icons/fa";
+
 
 export const Projects = () => {
   type postionType = {
@@ -51,12 +52,17 @@ export const Projects = () => {
         {projects.map((p, index) => {
           return (
             <div className="flex flex-col p-5 border border-gray-800 *:select-none group cursor-pointer duration-200 ease-in-out transition-all hover:border-gray-500">
-              <div className="overflow-hidden">
-                <img
-                  src={p.imageLink}
-                  alt=""
-                  className=" object-cover ease-in-out transition-all duration-300  group-hover:scale-110 cursor-pointer"
-                />
+              <div className="overflow-hidden relative bg-green-50">
+                <div className="overflow-hidden w-full h-full ">
+                  <img
+                    src={p.imageLink}
+                    alt=""
+                    className="w-full h-full object-cover ease-in-out transition-all duration-300  group-hover:scale-105 cursor-pointer"
+                  />
+                </div>
+                <div className="w-full h-10  z-10 duration-200 ease-in-out transition-all translate-y-full group-hover:-translate-y-full backdrop-blur-md">
+                  
+                </div>
               </div>
               <div className="flex flex-col gap-1 mt-2 mb-5">
                 <h1 className="text-white font-semibold">{p.projectName}</h1>
@@ -65,7 +71,7 @@ export const Projects = () => {
               <div className="flex gap-1 mt-auto mb-0">
                 {p.tecksUsed.map((t, index) => (
                   <div
-                    className="text-gray-400 px-2 py-1 rounded-2xl border border-gray-800 hover:text-white  hover:border-white duration-200 transition-all ease-in-out "
+                    className="text-gray-400 px-2 py-1 rounded-2xl border border-gray-800 hover:text-gray-500  hover:border-gray-500 duration-200 transition-all ease-in-out "
                     key={index}
                   >
                     {t.text}
