@@ -1,6 +1,6 @@
 import { Info } from "./components/mainIntroduction/Info";
 // import Navigation from "./components/NavigationBar/Navigation";
-import "@radix-ui/themes/styles.css";
+// import "@radix-ui/themes/styles.css";
 // import SmoothScroll from "./components/smoothScroll/SmoothScroll";
 import { TechStack } from "./components/techStack/TeckStack";
 import { ReactLenis } from "lenis/react";
