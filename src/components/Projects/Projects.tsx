@@ -4,7 +4,6 @@ import { useState } from "react";
 import { FaCode } from "react-icons/fa";
 import { FaLink } from "react-icons/fa";
 
-
 export const Projects = () => {
   type postionType = {
     x?: number;
@@ -60,8 +59,15 @@ export const Projects = () => {
                     className="w-full h-full object-cover ease-in-out transition-all duration-300  group-hover:scale-105 cursor-pointer"
                   />
                 </div>
-                <div className="w-full h-10  z-10 duration-200 ease-in-out transition-all translate-y-full group-hover:-translate-y-full backdrop-blur-md">
-                  
+                <div className="flex gap-2 p-2 justify-end w-full h-15  z-10 duration-200 ease-in-out transition-all translate-y-full group-hover:-translate-y-full backdrop-blur-xl">
+                  <div className="flex items-center text-gray-300 gap-2 border border-gray-500 py-1 px-2 rounded-2xl">
+                    <span>code</span>
+                    <FaCode />{" "}
+                  </div>
+                  <div className="flex items-center text-gray-300 gap-2 border border-gray-500 py-1 px-2 rounded-2xl">
+                    <span>Live</span>
+                    <FaLink />{" "}
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col gap-1 mt-2 mb-5">
