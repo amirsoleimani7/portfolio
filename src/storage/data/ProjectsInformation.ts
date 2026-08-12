@@ -129,4 +129,69 @@ export const projects: ProjectInformationType[] = [
       },
     ],
   },
+  {
+    projectName: "AVR Password Manager System",
+    ProjectYear: 2025,
+    githubLink: "https://github.com/amirsoleimani7/avr-password-manager",
+    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/AVR.png",
+    desc: "A complete AVR-based password manager system designed and simulated in Proteus 8/9, using an ATmega32 microcontroller",
+
+    tecksUsed: [
+      {
+        id: 1,
+        text: "ATmega32 micro",
+      },
+      {
+        id: 2,
+        text: "GLCD",
+      },
+      {
+        id: 3,
+        text: "GLCD",
+      },
+      {
+        id: 4,
+        text: "EEPROM",
+      },
+      {
+        id: 5,
+        text: "USART",
+      },
+      {
+        id: 6,
+        text: "Proteus",
+      },
+    ],
+  },
+  {
+    projectName: "ECU Simulation",
+    ProjectYear: 2025,
+    githubLink: "https://github.com/amirsoleimani7/ECUsim",
+    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/ECU.png",
+    desc: "This project implements an Electronic Control Unit (ECU) simulation for a vehicle system that manages fuel mode transitions (Petrol/Gas), monitors engine RPM, reads pressure sensor data, and controls various actuators and indicators",
+
+    tecksUsed: [
+      {
+        id: 1,
+        text: "STM32F103C8Tx",
+      },
+      {
+        id: 2,
+        text: "USART",
+      },
+      {
+        id: 3,
+        text: "ADC (int)",
+      },
+      {
+        id: 4,
+        text: "(Timer RPM)",
+      },
+
+      {
+        id: 5,
+        text: "Proteus",
+      },
+    ],
+  },
 ];
