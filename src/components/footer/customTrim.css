@@ -2,3 +2,20 @@
 .custom-trim {
   text-box: trim-both cap alphabetic;
 }
+
+.custom-trim {
+    /* Fallback styles for all browsers */
+    /* For example, you might use a smaller line-height or padding: */
+    line-height: 1.2;
+    padding-top: 0.1em;
+}
+
+@supports (text-box: trim-both cap alphabetic) {
+    .custom-trim {
+        /* Styles for browsers that support 'text-box' */
+        text-box: trim-both cap alphabetic;
+        /* Reset the fallback styles if they are no longer needed */
+        line-height: normal;
+        padding-top: 0;
+    }
+}

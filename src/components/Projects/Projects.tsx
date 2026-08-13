@@ -37,7 +37,7 @@ export const Projects = () => {
   //   window.removeEventListener("mousemove", updatePosition);
   //   setShow(false);
   // };
-
+  
   return (
     <div
       className="w-full p-[5%]  flex flex-col gap-5 "
@@ -49,8 +49,7 @@ export const Projects = () => {
           My <span className="text-white">Projects</span>
         </h1>
       </div>
-
-      <div className="grid  w-full h-200 grid-cols-2  gap-1 max-lg:grid-cols-1 ">
+      <div className="grid  w-full h-200 grid-cols-2  gap-1 max-lg:grid-cols-1">
         {projects.map((p: ProjectInformationType, index: number) => {
           return (
             <div

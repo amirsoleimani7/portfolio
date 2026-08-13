@@ -90,7 +90,7 @@ export const Footer = () => {
 
       <div className="border-b border-gray-800 mt-5"></div>
       
-      <div className="flex items-center gap-1 justify-end w-full font-semibold text-gray-500 text-[12px] mt-5">
+      <div className="flex items-center gap-1 justify-end w-full font-semibold text-gray-500 text-[12px] my-3">
         <FaRegCopyright />{" "}
         
         <h1> 2026 Designed and developed by Amir Hossein Soleiamni</h1>
