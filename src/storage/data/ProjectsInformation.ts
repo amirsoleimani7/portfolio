@@ -74,7 +74,7 @@ export const projects: ProjectInformationType[] = [
     projectName: "Frontend Lab (mini projects)",
     ProjectYear: 2025,
     githubLink: "https://github.com/amirsoleimani7/frontend-lab",
-    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/frontendLab.png",
+    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/frontndLab.png",
     desc: "some of my projects in the frontend field",
 
     tecksUsed: [

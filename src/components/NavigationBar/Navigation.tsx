@@ -2,11 +2,32 @@ import navigationData, {
   headerButton,
 } from "../../storage/data/navigationData";
 import { userInformation } from "../../storage/data/Information";
+import { useEffect, useState } from "react";
 
 const Navigation = () => {
-  
+  const [direction, setDirection] = useState<"up" | "down">("down");
+  let last_known = 0;
+
+  useEffect(() => {
+    document.addEventListener("scroll", (e) => {
+      if (window.scrollY > last_known) {
+        setDirection("down");
+        last_known = window.scrollY;
+      } else {
+        setDirection("up");
+        last_known = window.scrollY;
+      }
+    });
+  });
+  console.log(direction);
+
   return (
-    <div className="w-fit px-3 py-3 flex justify-center  rounded-full gap-5 border border-gray-800 my-2 backdrop-blur-xl z-10">
+    <div
+      className="w-[400px]  fixed  px-3 py-3 flex justify-between   rounded-full gap-5 border border-gray-800 my-2 backdrop-blur-xl z-20"
+      style={{
+        display: `${direction === "up" ? "none" : "flex"}`,
+      }}
+    >
       <div className="flex justify-center items-center gap-2 text-white mr-3 cursor-pointer">
         <div className="w-7 h-7 rounded-full overflow-hidden">
           <img src={userInformation.profile} alt="user profile" />

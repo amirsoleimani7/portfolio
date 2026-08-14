@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TypewriterView from "./TypeWriter";
 import NumberFlow, { NumberFlowGroup, continuous } from "@number-flow/react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 async function getCurrentTime() {
   const res = await axios.get(
@@ -39,6 +41,7 @@ export const Info = () => {
   });
 
   const [isTimeLoading, setTimeLoading] = useState<boolean>(false);
+  const [profileLoading, setProfileLoading] = useState<boolean>(true);
 
   // just once onMount
   useEffect(() => {
@@ -109,15 +112,17 @@ export const Info = () => {
   }, [currentTime]);
 
   const handleDownloadResume = (): void => {
-    fetch(process.env.PUBLIC_URL + "/resume/amirhossein-soleimani.pdf").then((response) => {
-      response.blob().then((blob) => {
-        const fileURL = window.URL.createObjectURL(blob);
-        let alink = document.createElement("a");
-        alink.href = fileURL;
-        alink.download = "AmirHosseinSoleimani.pdf";
-        alink.click();
-      });
-    });
+    fetch(process.env.PUBLIC_URL + "/resume/amirhossein-soleimani.pdf").then(
+      (response) => {
+        response.blob().then((blob) => {
+          const fileURL = window.URL.createObjectURL(blob);
+          let alink = document.createElement("a");
+          alink.href = fileURL;
+          alink.download = "AmirHosseinSoleimani.pdf";
+          alink.click();
+        });
+      },
+    );
   };
 
   return (
@@ -171,13 +176,13 @@ export const Info = () => {
             </div>
           </div>
           <div className="mt-auto w-[200px] h-[50px]">
-              <button
-                className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all  hover:outline-gray-500 
+            <button
+              className="w-[200px] h-[50px] rounded-full border-none outline-1 outline outline-gray-800 transition-all  hover:outline-gray-500 
               active:translate-y-[2px] duration-200"
-                onClick={handleDownloadResume}
-              >
-                <span>Download CV</span>
-              </button>
+              onClick={handleDownloadResume}
+            >
+              <span>Download CV</span>
+            </button>
           </div>
         </div>
 
@@ -186,8 +191,21 @@ export const Info = () => {
             <img
               src={userInformation.profile}
               alt="user's profile"
+              onLoad={() => {
+                setProfileLoading(false);
+              }}
               className="w-full h-full object-cover rounded-xl "
             />
+            
+            {profileLoading && (
+              <div className="w-full h-full absolute top-0 left-0">
+                <Skeleton
+                  duration={1.5}
+                  baseColor="#4b5563"
+                  className="w-full h-full !block"
+                />
+              </div>
+            )}
 
             <div className="flex absolute right-2 bottom-2  gap-2">
               <ConfigProvider

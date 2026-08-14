@@ -5,7 +5,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 export default function LoadingInstance(p: ProjectInformationType) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  
   return (
     <div className="overflow-hidden w-full h-full">
       <img
