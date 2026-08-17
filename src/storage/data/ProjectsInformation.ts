@@ -12,6 +12,7 @@ import { FaChartBar } from "react-icons/fa";
 export type ProjectInformationType = {
   projectName: string;
   ProjectYear: number;
+  inDev ?: Boolean;
   githubLink: string;
   liveLink?: string;
   tecksUsed: teckStackType[];
@@ -22,6 +23,7 @@ export type ProjectInformationType = {
 export const projects: ProjectInformationType[] = [
   {
     projectName: "Ava link",
+    inDev: true,
     ProjectYear: 2026,
     githubLink: "https://github.com/amirsoleimani7/avalink",
     liveLink: "https://avalink-seven.vercel.app/",
