@@ -7,7 +7,7 @@ import { SiPytorch } from "react-icons/si";
 import { BsFiletypeScss } from "react-icons/bs";
 import { RiNextjsFill } from "react-icons/ri";
 import { TbBrandFramerMotion, TbConnection } from "react-icons/tb";
-
+import { FaChartBar } from "react-icons/fa";
 
 export type ProjectInformationType = {
   projectName: string;
@@ -26,44 +26,74 @@ export const projects: ProjectInformationType[] = [
     githubLink: "https://github.com/amirsoleimani7/avalink",
     liveLink: "https://avalink-seven.vercel.app/",
     imageLink: process.env.PUBLIC_URL + "/images/projectsImage/avalink.png",
-    desc : "a fullstack project that users can share and customize their social media links in different desgins",
-    tecksUsed : [
+    desc: "a fullstack project that users can share and customize their social media links in different desgins",
+    tecksUsed: [
       {
-        id : 1,
+        id: 1,
         text: "Django",
-        icon :SiDjango
+        icon: SiDjango,
       },
       {
-        id : 2,
-        text : "Nexjs",
-        icon : RiNextjsFill
+        id: 2,
+        text: "Nextjs",
+        icon: RiNextjsFill,
       },
       {
-        id :3,
-        text : "Tailwind",
-        icon : RiTailwindCssFill
+        id: 3,
+        text: "Tailwind",
+        icon: RiTailwindCssFill,
       },
       {
-        id : 4,
-        text : "axios",
-        icon : SiAxios
+        id: 4,
+        text: "axios",
+        icon: SiAxios,
       },
       {
         id: 5,
         text: "REST API",
-        icon : TbConnection
+        icon: TbConnection,
       },
       {
-        id : 6,
-        text : "shadcn",
-        icon: SiShadcnui
+        id: 6,
+        text: "shadcn",
+        icon: SiShadcnui,
       },
       {
         id: 7,
         text: "Framer motion",
-        icon: TbBrandFramerMotion
-      }
-    ]
+        icon: TbBrandFramerMotion,
+      },
+    ],
+  },
+  {
+    projectName: "Gold Platform Landing",
+    ProjectYear: 2026,
+    githubLink: "https://github.com/amirsoleimani7/piyaroLanding",
+    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/piyaroGold.png",
+    liveLink: "https://piyaro-landing.vercel.app/",
+    desc: "a landing page made for a online gold trading compnay",
+    tecksUsed: [
+      {
+        id: 1,
+        text: "Nextjs",
+        icon: RiNextjsFill,
+      },
+      {
+        id: 2,
+        text: "Tailwind",
+        icon: RiTailwindCssFill,
+      },
+      {
+        id: 3,
+        text: "Apex charts",
+        icon: FaChartBar,
+      },
+      {
+        id: 4,
+        text: "shadcn",
+        icon: SiShadcnui,
+      },
+    ],
   },
   {
     projectName: "LLM Robotics",
