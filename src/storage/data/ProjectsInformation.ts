@@ -1,10 +1,13 @@
-import { SiDjango } from "react-icons/si";
+import { SiAxios, SiDjango, SiShadcnui } from "react-icons/si";
 import { teckStackType } from "./techStack";
 import { RiTailwindCssFill, RiVercelLine } from "react-icons/ri";
 import { FaFigma, FaReact } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiPytorch } from "react-icons/si";
 import { BsFiletypeScss } from "react-icons/bs";
+import { RiNextjsFill } from "react-icons/ri";
+import { TbBrandFramerMotion, TbConnection } from "react-icons/tb";
+
 
 export type ProjectInformationType = {
   projectName: string;
@@ -17,6 +20,51 @@ export type ProjectInformationType = {
 };
 
 export const projects: ProjectInformationType[] = [
+  {
+    projectName: "Ava link",
+    ProjectYear: 2026,
+    githubLink: "https://github.com/amirsoleimani7/avalink",
+    liveLink: "https://avalink-seven.vercel.app/",
+    imageLink: process.env.PUBLIC_URL + "/images/projectsImage/avalink.png",
+    desc : "a fullstack project that users can share and customize their social media links in different desgins",
+    tecksUsed : [
+      {
+        id : 1,
+        text: "Django",
+        icon :SiDjango
+      },
+      {
+        id : 2,
+        text : "Nexjs",
+        icon : RiNextjsFill
+      },
+      {
+        id :3,
+        text : "Tailwind",
+        icon : RiTailwindCssFill
+      },
+      {
+        id : 4,
+        text : "axios",
+        icon : SiAxios
+      },
+      {
+        id: 5,
+        text: "REST API",
+        icon : TbConnection
+      },
+      {
+        id : 6,
+        text : "shadcn",
+        icon: SiShadcnui
+      },
+      {
+        id: 7,
+        text: "Framer motion",
+        icon: TbBrandFramerMotion
+      }
+    ]
+  },
   {
     projectName: "LLM Robotics",
     ProjectYear: 2026,
